@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from '../../assets/logo.png';
 
 const navLinks = [
   { label: 'Home',    to: '/' },
@@ -40,8 +41,9 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex flex-col leading-tight select-none flex-shrink-0">
-          <span className="text-white font-bold text-base tracking-wide">Magyar</span>
-          <span className="text-white font-bold text-base tracking-wide">Digital</span>
+          {/* <span className="text-white font-bold text-base tracking-wide">Magyar</span>
+          <span className="text-white font-bold text-base tracking-wide">Digital</span> */}
+          <img src={Logo} alt="Magyar Digital" className="w-32" />
         </Link>
 
         {/* Nav links — desktop */}
