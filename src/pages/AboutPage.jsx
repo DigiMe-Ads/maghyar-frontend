@@ -1,13 +1,13 @@
-import PageHero from '../components/common/PageHero';
-import About from '../components/home/About';
-import WhyChooseUs from '../components/home/WhyChooseUs';
+import PageHero      from '../components/common/PageHero';
+import WhoWeAre     from '../components/about/WhoWeAre';
+import VideoSection from '../components/about/VideoSection';
 
 export default function AboutPage() {
   return (
     <main>
       <PageHero title="About" />
-      <About />
-      <WhyChooseUs />
+      <WhoWeAre />
+      <VideoSection />
     </main>
   );
 }
