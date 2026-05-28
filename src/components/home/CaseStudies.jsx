@@ -26,13 +26,13 @@ const projects = [
 export default function CaseStudies() {
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] py-20 px-5 md:px-10 lg:px-16 overflow-hidden"
+      className="relative w-full bg-[#0a0a0a] py-20 px-4 sm:px-10 md:px-16 lg:px-24 overflow-hidden"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
 
       {/* ── 3D swirl — bottom left ── */}
       <div
-        className="pointer-events-none absolute left-0 bottom-10 z-10"
+        className="hidden md:block pointer-events-none absolute left-0 bottom-10 z-10"
         style={{
           width: 'clamp(100px, 10vw, 240px)',
           animation: 'floatY 6s ease-in-out infinite',
@@ -64,7 +64,7 @@ export default function CaseStudies() {
           <div
             key={project.id}
             className="relative w-full rounded-2xl overflow-hidden group cursor-pointer"
-            style={{ minHeight: '460px' }}
+            style={{ minHeight: 'clamp(260px, 45vw, 460px)' }}
           >
             {/* Background image */}
             <img

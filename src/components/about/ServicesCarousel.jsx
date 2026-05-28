@@ -80,13 +80,13 @@ export default function ServicesCarousel() {
         {slides[active].map((card) => (
           <div
             key={card.title}
-            className="flex flex-row rounded-3xl overflow-hidden"
-            style={{ background: '#161616', minHeight: 'clamp(200px, 26vw, 320px)' }}
+            className="flex flex-col sm:flex-row rounded-3xl overflow-hidden"
+            style={{ background: '#161616' }}
           >
             {/* Left: shape */}
             <div
               className="flex items-center justify-center flex-shrink-0"
-              style={{ width: 'clamp(140px, 22%, 220px)' }}
+              style={{ width: 'clamp(120px, 22%, 200px)', minHeight: 'clamp(140px, 20vw, 200px)' }}
             >
               <img
                 src={card.shape}

@@ -34,7 +34,7 @@ export default function Testimonials() {
 
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] py-20 px-5 md:px-10 lg:px-36 overflow-hidden"
+      className="relative w-full bg-[#0a0a0a] py-20 px-4 sm:px-10 md:px-16 lg:px-24 overflow-hidden"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       {/* ── Header ── */}

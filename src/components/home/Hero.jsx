@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="relative flex-shrink-0 text-center px-4">
           <h1
             className="font-black text-white leading-[0.88] tracking-tight"
-            style={{ fontSize: 'clamp(6rem, 14.5vw, 13.5rem)' }}
+            style={{ fontSize: 'clamp(3.8rem, 14.5vw, 13.5rem)' }}
           >
             <span className="block">MAGYAR</span>
             <span className="block">DIGITAL</span>
@@ -60,7 +60,7 @@ export default function Hero() {
           {/* Photo card 1 — overlaps headline, z-20 */}
           <div
             ref={p1Ref}
-            className="absolute z-20 transition-transform duration-75 ease-out"
+            className="hidden sm:block absolute z-20 transition-transform duration-75 ease-out"
             style={{
               left: '28%',
               top: '5%',
@@ -79,7 +79,7 @@ export default function Hero() {
           {/* Photo card 2 — overlaps headline, z-20 */}
           <div
             ref={p2Ref}
-            className="absolute z-20 transition-transform duration-75 ease-out"
+            className="hidden sm:block absolute z-20 transition-transform duration-75 ease-out"
             style={{
               right: '4%',
               top: '0%',
@@ -97,7 +97,7 @@ export default function Hero() {
 
           {/* 3D Flower — left of headline, z-20 */}
           <div
-            className="absolute z-20"
+            className="hidden sm:block absolute z-20"
             style={{
               left: '1%',
               top: '20%',
@@ -110,7 +110,7 @@ export default function Hero() {
         </div>
 
         {/* ── 3D Cubes — sits between headline and bottom row ── */}
-        <div className="relative flex-shrink-0 flex justify-center" style={{ height: '120px' }}>
+        <div className="hidden sm:flex relative flex-shrink-0 justify-center" style={{ height: '120px' }}>
           <div
             className="absolute z-20"
             style={{
@@ -138,8 +138,8 @@ export default function Hero() {
             {/* Left: description + avatar */}
             <div style={{ maxWidth: '380px' }}>
               <p className="text-white/50 text-sm font-normal leading-relaxed mb-5">
-                A Design Agency is a professional business that provides a range of creative,
-                strategic, and technical services focused.
+                We help businesses transform ideas into powerful digital solutions.
+                Let's discuss your project today.
               </p>
 
               <div className="flex items-center gap-3">
@@ -187,7 +187,7 @@ export default function Hero() {
                   className="px-7 py-3 rounded-full text-white text-sm font-medium tracking-wider uppercase hover:opacity-90 transition-opacity"
                   style={{ background: '#e8435a', letterSpacing: '0.06em' }}
                 >
-                  Discover More
+                  Book a Free Consultation
                 </a>
                 <a
                   href="#"

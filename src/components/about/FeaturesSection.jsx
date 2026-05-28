@@ -44,7 +44,7 @@ export default function FeaturesSection() {
         <div className="flex-1 flex flex-col">
           {/* FEATURES watermark — sits at the top, parallel to the heading */}
           <div
-            className="pointer-events-none select-none overflow-hidden flex items-center mb-8"
+            className="hidden sm:flex pointer-events-none select-none overflow-hidden items-center mb-8"
             style={{ minHeight: 'clamp(2.5rem, 6vw, 5rem)' }}
           >
             <span

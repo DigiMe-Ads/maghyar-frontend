@@ -32,7 +32,7 @@ const SocialBtn = ({ children }) => (
 export default function Team() {
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] py-20 px-15 md:px-20 lg:px-36 overflow-hidden"
+      className="relative w-full bg-[#0a0a0a] py-20 px-4 sm:px-10 md:px-16 lg:px-24 overflow-hidden"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <div className="flex flex-col lg:flex-row gap-10 items-start">

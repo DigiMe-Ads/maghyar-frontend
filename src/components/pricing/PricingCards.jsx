@@ -1,36 +1,57 @@
 const plans = [
   {
-    price: '399',
-    name: 'Starter Plan',
+    name: 'Starter Website',
+    priceFrom: '350,000',
+    priceTo: '450,000',
     features: [
-      'Business Consultation',
-      'Up to 10 Support Hours/Month',
-      'Network Monitoring',
-      'Email & Software Setup',
-      'Monthly Health Reports',
+      'Up to 4 fully responsive pages',
+      'React SPA (Single-Page Application)',
+      'Component-based architecture',
+      'Mobile-first responsive design',
+      'Basic SEO meta tags & Open Graph',
+      'Contact form with Web3Forms',
+      'Performance-optimised build (Vite)',
+      'Git repository + deployment-ready',
+      '3 rounds of design revisions',
+      '30-day post-launch bug support',
+      'Basic Lighthouse performance audit',
     ],
   },
   {
-    price: '399',
-    name: 'Starter Plan',
-    features: [
-      'Business Consultation',
-      'Up to 10 Support Hours/Month',
-      'Network Monitoring',
-      'Email & Software Setup',
-      'Monthly Health Reports',
-    ],
+    name: 'Business Website',
+    priceFrom: '500,000',
+    priceTo: '750,000',
     recommended: true,
+    features: [
+      'Up to 8 fully responsive pages',
+      'React SPA / Multi-page application',
+      'Custom component architecture',
+      'Mobile-first responsive design',
+      'Advanced SEO & Open Graph tags',
+      'Contact form + custom integrations',
+      'Performance-optimised build (Vite)',
+      'Git repository + deployment-ready',
+      '3 rounds of design revisions',
+      '60-day post-launch bug support',
+      'Full Lighthouse performance audit',
+    ],
   },
   {
-    price: '399',
-    name: 'Starter Plan',
+    name: 'Custom Web / eCommerce',
+    priceFrom: '750,000',
+    priceTo: null,
     features: [
-      'Business Consultation',
-      'Up to 10 Support Hours/Month',
-      'Network Monitoring',
-      'Email & Software Setup',
-      'Monthly Health Reports',
+      'Unlimited pages & custom features',
+      'React / Next.js application',
+      'eCommerce & payment integration',
+      'Mobile-first responsive design',
+      'Full SEO & Open Graph integration',
+      'Custom forms & API integrations',
+      'Performance-optimised build (Vite)',
+      'Git repository + deployment-ready',
+      'Unlimited design revisions',
+      '90-day post-launch bug support',
+      'Lighthouse audit + optimisation',
     ],
   },
 ];
@@ -41,10 +62,31 @@ const CheckIcon = () => (
   </svg>
 );
 
+function PriceDisplay({ from, to }) {
+  return (
+    <div className="mb-5">
+      <div className="flex items-baseline gap-1 flex-wrap">
+        <span className="text-white" style={{ fontSize: '0.85rem', alignSelf: 'flex-start', marginTop: 8, opacity: 0.6 }}>
+          HUF
+        </span>
+        <span
+          className="text-white font-black leading-none"
+          style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)' }}
+        >
+          {from}
+          {to ? ` – ${to}` : '+'}
+        </span>
+      </div>
+      <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}>
+        one-time project fee
+      </span>
+    </div>
+  );
+}
+
 function PricingCard({ plan }) {
   return (
-    <div className="relative" style={{ paddingTop: plan.recommended ? 0 : 0 }}>
-      {/* Recommended badge — sits just above the card */}
+    <div className="relative">
       {plan.recommended && (
         <div
           style={{
@@ -64,7 +106,6 @@ function PricingCard({ plan }) {
         </div>
       )}
 
-      {/* Card */}
       <div
         className="flex flex-col p-7"
         style={{
@@ -75,21 +116,8 @@ function PricingCard({ plan }) {
           zIndex: 1,
         }}
       >
-        {/* Price */}
-        <div className="flex items-baseline gap-1 mb-5">
-          <span className="text-white" style={{ fontSize: '1rem', alignSelf: 'flex-start', marginTop: 10 }}>$</span>
-          <span
-            className="text-white font-black leading-none"
-            style={{ fontSize: 'clamp(2.8rem, 5vw, 3.8rem)' }}
-          >
-            {plan.price}
-          </span>
-          <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
-            / Monthly
-          </span>
-        </div>
+        <PriceDisplay from={plan.priceFrom} to={plan.priceTo} />
 
-        {/* Plan name label */}
         <div
           className="rounded-xl flex items-center justify-center mb-5"
           style={{ background: '#0f0f0f', padding: '11px 20px' }}
@@ -99,10 +127,8 @@ function PricingCard({ plan }) {
           </span>
         </div>
 
-        {/* Divider */}
         <div style={{ height: 1, background: 'rgba(255,255,255,0.07)', marginBottom: 20 }} />
 
-        {/* Features */}
         <ul className="flex flex-col gap-4 flex-1 mb-8">
           {plan.features.map((f) => (
             <li key={f} className="flex items-center gap-3">
@@ -112,13 +138,12 @@ function PricingCard({ plan }) {
           ))}
         </ul>
 
-        {/* CTA */}
         <button
           type="button"
           className="w-full py-3.5 rounded-full text-white text-sm font-normal tracking-wide hover:opacity-85 transition-opacity"
           style={{ background: '#1e1e1e' }}
         >
-          Read More
+          Get a Quote
         </button>
       </div>
     </div>
@@ -133,7 +158,7 @@ export default function PricingCards() {
     >
       <div
         className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto"
-        style={{ alignItems: 'end' }}
+        style={{ alignItems: 'end', paddingTop: 56 }}
       >
         {plans.map((plan, i) => (
           <PricingCard key={i} plan={plan} />

@@ -18,7 +18,7 @@ export default function HomePage() {
       <Features />
       <About />
       <Services />
-      <CaseStudies />
+<CaseStudies />
       <WhyChooseUs />
       <Faq />
       <Team />

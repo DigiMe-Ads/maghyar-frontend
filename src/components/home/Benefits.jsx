@@ -65,20 +65,20 @@ const gridBg = {
 export default function Benefits() {
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] py-20 px-5 md:px-10 lg:px-36 overflow-hidden"
+      className="relative w-full bg-[#0a0a0a] py-20 px-4 sm:px-10 md:px-16 lg:px-24 overflow-hidden"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       {/* ── Section header ── */}
       <div className="text-center mb-12">
         <p className="flex items-center justify-center gap-1 text-[#6dbf67] text-xs font-bold tracking-widest uppercase mb-4">
-          <span className="font-extrabold">+</span>OUR BENEFITS
+          <span className="font-extrabold">+</span>OUR PROCESS
         </p>
         <h2 className="leading-tight" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)' }}>
-          <span className="text-white font-bold">The Benefits </span>
-          <span className="font-normal" style={{ color: 'rgba(255,255,255,0.5)' }}>of Smarter</span>
+          <span className="text-white font-bold">Structured &amp; Transparent </span>
+          <span className="font-normal" style={{ color: 'rgba(255,255,255,0.5)' }}>Work</span>
           <br />
-          <span className="text-[#e8435a] italic font-bold">Work</span>
-          <span className="italic font-normal" style={{ color: 'rgba(232,67,90,0.2)' }}>flow</span>
+          <span className="text-[#e8435a] italic font-bold">Flow</span>
+          <span className="italic font-normal" style={{ color: 'rgba(232,67,90,0.2)' }}>We Follow</span>
         </h2>
       </div>
 
@@ -91,9 +91,9 @@ export default function Benefits() {
           style={{ background: '#161616', minHeight: 400 }}
         >
           <div>
-            <h3 className="text-white font-bold text-base mb-2">Save Hours Every Week</h3>
+            <h3 className="text-white font-bold text-base mb-2">We Follow a Structured Process</h3>
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)', maxWidth: 220 }}>
-              It is a long established fact that a reader will be distracted by the readable
+              Every project follows the same proven workflow — so you always know where we are and what comes next.
             </p>
           </div>
 
@@ -117,7 +117,7 @@ export default function Benefits() {
           </div>
         </div>
 
-        {/* Card 2 — 85% / Save Hours */}
+        {/* Card 2 — Discovery */}
         <div
           className="rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden"
           style={{ background: '#161616', minHeight: 280, ...gridBg }}
@@ -126,7 +126,7 @@ export default function Benefits() {
             className="font-black leading-none"
             style={{ fontSize: 'clamp(2.6rem, 4.5vw, 3.8rem)', color: '#e8435a' }}
           >
-            85%
+            01
           </p>
           <div className="flex justify-center items-center flex-1 py-4">
             <img
@@ -137,14 +137,14 @@ export default function Benefits() {
             />
           </div>
           <div>
-            <h3 className="text-white font-semibold text-sm mb-1">Save Hours Every Week</h3>
+            <h3 className="text-white font-semibold text-sm mb-1">Discovery</h3>
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              It is a long established fact that a reader will be distracted by the readable
+              Understanding your business, market, and goals.
             </p>
           </div>
         </div>
 
-        {/* Card 3 — $2.5M / Saved in Costs */}
+        {/* Card 3 — Strategy */}
         <div
           className="rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden"
           style={{ background: '#161616', minHeight: 280, ...gridBg }}
@@ -153,7 +153,7 @@ export default function Benefits() {
             className="font-black leading-none"
             style={{ fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: '#e8435a' }}
           >
-            $2.5M
+            02
           </p>
           <div className="flex justify-center items-center flex-1 py-4">
             <img
@@ -164,22 +164,22 @@ export default function Benefits() {
             />
           </div>
           <div>
-            <h3 className="text-white font-semibold text-sm mb-1">Saved in Costs</h3>
+            <h3 className="text-white font-semibold text-sm mb-1">Strategy</h3>
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              By reducing manual effort and improving efficiency.
+              Defining the digital roadmap and architecture.
             </p>
           </div>
         </div>
 
-        {/* Card 4 — Workflows Automated (wide, bottom) */}
+        {/* Card 4 — remaining steps, wide bottom */}
         <div
           className="lg:col-span-2 rounded-2xl px-6 py-5 flex items-center justify-between gap-6"
           style={{ background: '#161616' }}
         >
           <div>
-            <h3 className="text-white font-semibold text-sm mb-1">Workflows Automated</h3>
+            <h3 className="text-white font-semibold text-sm mb-2">Design → Development → Testing &amp; Launch → Support</h3>
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              Helping teams save time and reduce errors every single day
+              From UI/UX concepts through to scalable builds, quality assurance, deployment, and ongoing optimisation.
             </p>
           </div>
 
@@ -196,7 +196,7 @@ export default function Benefits() {
                 </div>
               ))}
             </div>
-            <span className="font-bold text-sm" style={{ color: '#e8435a' }}>50000+</span>
+            <span className="font-bold text-sm" style={{ color: '#e8435a' }}>6 Steps</span>
           </div>
         </div>
       </div>

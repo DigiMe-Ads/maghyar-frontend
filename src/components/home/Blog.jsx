@@ -30,12 +30,12 @@ const posts = [
 export default function Blog() {
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] py-20 px-5 md:px-10 lg:px-36 overflow-hidden"
+      className="relative w-full bg-[#0a0a0a] py-20 px-4 sm:px-10 md:px-16 lg:px-24 overflow-hidden"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       {/* ── 3D swirl — top left ── */}
       <div
-        className="pointer-events-none absolute -left-10 -top-6 opacity-60"
+        className="hidden md:block pointer-events-none absolute -left-10 -top-6 opacity-60"
         style={{ width: 'clamp(100px, 10vw, 180px)', animation: 'floatY 6s ease-in-out infinite' }}
       >
         <img src={aboutSwirl} alt="" className="w-full drop-shadow-2xl" />

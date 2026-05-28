@@ -19,7 +19,7 @@ const tags = ['Email Marketing', 'Affiliate Marketing', 'Analytics and Reporting
 export default function Features() {
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] py-20 px-5 md:px-10 lg:px-16 overflow-hidden"
+      className="relative w-full bg-[#0a0a0a] py-20 px-4 sm:px-10 md:px-16 lg:px-24 overflow-hidden"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       {/* Wireframe globe background — far left */}

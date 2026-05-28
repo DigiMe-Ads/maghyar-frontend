@@ -11,7 +11,7 @@ export default function WhoWeAre() {
     >
       {/* ── Iridescent bubble — top left, partially off-screen ── */}
       <div
-        className="pointer-events-none absolute -left-14 top-8 opacity-85"
+        className="hidden md:block pointer-events-none absolute -left-14 top-8 opacity-85"
         style={{ width: 'clamp(140px, 14vw, 210px)', zIndex: 1 }}
       >
         <img src={faqShape} alt="" className="w-full drop-shadow-2xl" />
@@ -34,7 +34,7 @@ export default function WhoWeAre() {
       <div className="flex flex-col lg:flex-row gap-14 items-center relative z-10">
 
         {/* ── Left: image stack + badge ── */}
-        <div className="lg:w-[46%] flex-shrink-0 relative" style={{ minHeight: 520 }}>
+        <div className="lg:w-[46%] flex-shrink-0 relative" style={{ minHeight: 'clamp(360px, 55vw, 520px)' }}>
 
           {/* Large portrait image */}
           <div
@@ -58,32 +58,26 @@ export default function WhoWeAre() {
             <img src={aboutTeam} alt="Team collaboration" className="w-full h-full object-cover object-center" />
           </div>
 
-          {/* 25-year badge — bottom left, overlapping both images */}
+          {/* Badge — bottom left, overlapping both images */}
           <div
             className="absolute z-20"
-            style={{ bottom: 'clamp(60px, 10vw, 100px)', left: -10, width: 120, height: 120 }}
+            style={{ bottom: 'clamp(60px, 10vw, 100px)', left: 4, width: 110, height: 110 }}
           >
-            {/* Dark background disc */}
             <div
               className="absolute inset-0 rounded-full"
               style={{ background: 'rgba(10,10,10,0.55)', backdropFilter: 'blur(4px)' }}
             />
-            {/* Spinning "welcome" ring */}
             <div
               className="absolute inset-0 rounded-full overflow-hidden"
               style={{ animation: 'spinSlow 14s linear infinite' }}
             >
               <img src={aboutBadge} alt="" className="w-full h-full object-cover" />
             </div>
-            {/* Inner pink "25" disc — not spinning */}
             <div
               className="absolute rounded-full flex items-center justify-center"
-              style={{
-                inset: 24,
-                background: '#e8435a',
-              }}
+              style={{ inset: 24, background: '#e8435a' }}
             >
-              <span className="text-white font-black leading-none" style={{ fontSize: '1.5rem' }}>25</span>
+              <span className="text-white font-black leading-none" style={{ fontSize: '1.5rem' }}>EU</span>
             </div>
           </div>
         </div>
@@ -101,14 +95,12 @@ export default function WhoWeAre() {
             className="leading-tight mb-5"
             style={{ fontSize: 'clamp(1.7rem, 3.8vw, 3rem)' }}
           >
-            <span className="text-white font-black">Redefining</span>
-            <span className="text-white font-normal">The</span>
-            <span className="text-white font-black">World</span>
-            <span className="font-normal" style={{ color: 'rgba(255,255,255,0.7)' }}> For </span>
-            <span className="text-[#e8435a] italic font-bold">A</span>
+            <span className="text-white font-black">Building Digital</span>
+            <span className="font-normal text-white/70"> Products </span>
+            <span className="text-white font-black">That</span>
             <br />
-            <span className="text-[#e8435a] italic font-bold">BetterTom</span>
-            <span className="italic font-normal" style={{ color: 'rgba(232,67,90,0.18)' }}>orrow</span>
+            <span className="text-[#e8435a] italic font-bold">Scale </span>
+            <span className="italic font-normal" style={{ color: 'rgba(232,67,90,0.18)' }}>& Perform</span>
           </h2>
 
           {/* Description */}
@@ -116,8 +108,8 @@ export default function WhoWeAre() {
             className="text-sm leading-relaxed mb-7"
             style={{ color: 'rgba(255,255,255,0.4)', maxWidth: 460 }}
           >
-            It is a long established fact that a reader will be distracted by the readable
-            content of a page when looking at its layout. The point of using.
+            We help businesses in Hungary and across Europe grow through high-performance
+            websites, intuitive user experiences, and scalable mobile applications.
           </p>
 
           {/* Quote card with red border */}
@@ -129,8 +121,9 @@ export default function WhoWeAre() {
             }}
           >
             <p className="text-white text-sm leading-relaxed font-normal">
-              We combine cutting-edge AI with simple design to help businesses of all sizes.
-              The result? Smarter conversations, happier customers, opportunities for growth.
+              We build websites and applications that are fast, intuitive, and designed
+              to scale — helping brands connect effectively with their audiences across
+              the European market.
             </p>
           </div>
 

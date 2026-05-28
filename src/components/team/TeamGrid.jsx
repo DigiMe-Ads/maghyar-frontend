@@ -94,10 +94,7 @@ export default function TeamGrid() {
       className="w-full bg-[#0a0a0a] py-14 px-5 md:px-10 lg:px-16"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
-      <div
-        className="grid gap-5 max-w-6xl mx-auto"
-        style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
         {members.map((member, i) => (
           <MemberCard key={i} member={member} />
         ))}

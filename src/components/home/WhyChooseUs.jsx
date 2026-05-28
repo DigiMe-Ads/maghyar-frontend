@@ -6,10 +6,11 @@ import servicesTeam from '../../assets/about-team.jpg';
 import extraImg     from '../../assets/about-team.jpg'; // add a 4th if you have one
 
 const features = [
-  { id: '01', title: 'Personalized',  subtitle: 'Approach',   desc: 'It is a long established fact that a reader will be distracted by' },
-  { id: '02', title: 'Experienced',   subtitle: 'Team',       desc: 'It is a long established fact that a reader will be distracted by' },
-  { id: '03', title: 'Data – Driven', subtitle: 'Decisions',  desc: 'It is a long established fact that a reader will be distracted by' },
-  { id: '04', title: 'Ongoing',       subtitle: 'Support',    desc: 'It is a long established fact that a reader will be distracted by' },
+  { id: '01', title: 'Transparent',        subtitle: 'Pricing',              desc: 'Clear quotes before any work begins — no hidden fees or surprise invoices.' },
+  { id: '02', title: 'Focus on ROI',       subtitle: '& Measurable Results', desc: 'Every decision is tied to business outcomes, not just aesthetics.' },
+  { id: '03', title: 'European-Standard',  subtitle: 'Design & Development', desc: 'We build to the quality bar set by the best digital agencies in Europe.' },
+  { id: '04', title: 'End-to-End',         subtitle: 'Service',              desc: 'Strategy → Launch → Post-Launch Assistance, all under one roof.' },
+  { id: '05', title: 'Flexible',           subtitle: 'Solutions',            desc: 'Scalable packages tailored for startups and growing SMEs.', full: true },
 ];
 
 const carouselImages = [photo1, aboutTeam, servicesTeam, extraImg];
@@ -19,7 +20,7 @@ export default function WhyChooseUs() {
 
   return (
     <section
-      className="relative h-full w-full bg-[#0a0a0a] py-20 px-5 md:px-10 lg:px-16 overflow-hidden"
+      className="relative h-full w-full bg-[#0a0a0a] py-20 px-4 sm:px-10 md:px-16 lg:px-24 overflow-hidden"
       style={{ fontFamily: "'Sora', sans-serif" }}
     >
 
@@ -35,7 +36,7 @@ export default function WhyChooseUs() {
       <div className="flex flex-col lg:flex-row gap-8 items-stretch relative">
 
         {/* ── Left: Rolling Carousel ── */}
-        <div className="flex-shrink-0 overflow-hidden rounded-2xl" style={{ width: 220, height: 420 }}>
+        <div className="hidden lg:block flex-shrink-0 overflow-hidden rounded-2xl" style={{ width: 220, height: 420 }}>
           <div
             ref={trackRef}
             style={{
@@ -79,11 +80,11 @@ export default function WhyChooseUs() {
           {/* Feature cards grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative" style={{ zIndex: 2 }}>
             {/* Wire globe behind cards */}
-            <div className="pointer-events-none absolute -bottom-16 -right-20 opacity-90" style={{ width: 720, zIndex: 0 }}>
+            <div className="hidden md:block pointer-events-none absolute -bottom-16 -right-20 opacity-90" style={{ width: 720, zIndex: 0 }}>
               <img src={featuresWire} alt="" className="w-full" />
             </div>
             {features.map((f) => (
-              <div key={f.id} className="rounded-2xl p-5 flex flex-col gap-1 relative overflow-hidden"
+              <div key={f.id} className={`rounded-2xl p-5 flex flex-col gap-1 relative overflow-hidden${f.full ? ' sm:col-span-2' : ''}`}
                 style={{ background: '#161616', border: '1px solid rgba(255,255,255,0.04)' }}>
                 <span className="absolute right-3 top-2 font-black leading-none select-none"
                   style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: 'rgba(255,255,255,0.07)' }}>

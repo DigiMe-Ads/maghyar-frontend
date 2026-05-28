@@ -36,7 +36,7 @@ export default function ContactSection() {
         className="max-w-5xl mx-auto rounded-2xl overflow-hidden"
         style={{ background: '#111111', border: '1px solid rgba(255,255,255,0.08)' }}
       >
-        <div className="flex flex-col lg:flex-row gap-12 p-10 md:p-14">
+        <div className="flex flex-col lg:flex-row gap-10 p-6 sm:p-10 md:p-14">
 
           {/* ── Left: heading + contact info ── */}
           <div className="lg:w-[40%] flex-shrink-0 flex flex-col justify-between relative min-h-[260px]">
@@ -65,27 +65,30 @@ export default function ContactSection() {
                 className="text-white font-bold leading-snug"
                 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)' }}
               >
-                Success is a team
+                We help businesses
                 <br />
-                effort{' '}
+                transform ideas into{' '}
                 <span style={{ color: '#e8435a', fontStyle: 'italic', fontWeight: 700 }}>
-                  let's achieve
+                  powerful digital
                   <br />
-                  it together
+                  solutions
                 </span>
               </h2>
+              <p className="mt-4 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                Let's discuss your project today.
+              </p>
             </div>
 
             {/* Bottom: contact info */}
             <div className="relative z-10 mt-10 lg:mt-0">
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', marginBottom: 4 }}>
-                needhelp@company.com
+                sales@magyardigital.com
               </p>
               <p
                 className="text-white font-normal"
                 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}
               >
-                (+123) 456789 00
+                +36 30 655 7566
               </p>
             </div>
           </div>
@@ -133,13 +136,22 @@ export default function ContactSection() {
 
             {/* Submit */}
             <div>
-              <button
-                type="button"
-                className="px-8 py-3.5 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity"
-                style={{ background: '#e8435a', letterSpacing: '0.1em' }}
-              >
-                Send Your Request
-              </button>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  className="px-8 py-3.5 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity"
+                  style={{ background: '#e8435a', letterSpacing: '0.1em' }}
+                >
+                  Book a Free Consultation
+                </button>
+                <button
+                  type="button"
+                  className="px-8 py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity"
+                  style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}
+                >
+                  Request a Proposal
+                </button>
+              </div>
             </div>
           </div>
 

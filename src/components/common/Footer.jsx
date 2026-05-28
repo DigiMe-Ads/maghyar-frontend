@@ -24,9 +24,8 @@ export default function Footer() {
               className="text-white font-normal leading-snug mb-6"
               style={{ fontSize: 'clamp(1.1rem, 2vw, 1.45rem)', maxWidth: 360 }}
             >
-              Smart investing starts here.{' '}
-              Let's grow together—
-              <span className="font-semibold" style={{ color: '#e8435a' }}>starting today!</span>
+              We help businesses transform ideas into{' '}
+              <span className="font-semibold" style={{ color: '#e8435a' }}>powerful digital solutions.</span>
             </h3>
 
             {/* Email input */}
@@ -110,9 +109,9 @@ export default function Footer() {
               <h4 className="text-white font-semibold text-sm mb-5">Contact</h4>
               <ul className="flex flex-col gap-3">
                 {[
-                  '+629 555-0129',
-                  'demo@example.com',
-                  '1901 Thornridge Cir. Shiloh, Hawaii 81063',
+                  '+36 30 655 7566',
+                  'sales@magyardigital.com',
+                  'Budapest, Hungary',
                 ].map((item, i) => (
                   <li
                     key={i}
