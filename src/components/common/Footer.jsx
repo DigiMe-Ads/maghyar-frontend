@@ -132,7 +132,7 @@ export default function Footer() {
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            © {new Date().getFullYear()} DigiMe Ads. All rights reserved.
+            © {new Date().getFullYear()} Magyar Digital. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             {['Privacy Policy', 'Terms of Service'].map(item => (
