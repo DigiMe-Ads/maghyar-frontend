@@ -6,10 +6,12 @@ import AboutPage   from './pages/AboutPage';
 import TeamPage    from './pages/TeamPage';
 import ContactPage from './pages/ContactPage';
 import PricingPage from './pages/PricingPage';
+import ScrollToTop from './ui/ScrollToTop';
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/"        element={<HomePage />} />
