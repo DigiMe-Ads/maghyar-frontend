@@ -1,44 +1,37 @@
 // src/components/home/Services.jsx
 import { useState } from 'react';
 import servicesTeam   from '../../assets/services-team.jpg';
-import servicesAvatar from '../../assets/avatar.jpg';
 
 const services = [
   {
     id: '01',
-    label: 'Website Development',
-    description: 'Modern, responsive, and high-performance websites tailored to your business objectives — built mobile-first with SEO-optimized structure and fast loading performance.',
-    solutions: ['Corporate websites', 'Landing & campaign pages', 'E-commerce platforms', 'Custom web applications'],
+    label: 'Fully Responsive',
+    description: 'Every site we build starts from mobile and scales up — ensuring a seamless, consistent experience across all screen sizes, from smartphones to large desktops.',
+    solutions: ['Fluid grid layouts', 'Touch-friendly interfaces', 'Cross-device testing', 'Adaptive breakpoints'],
   },
   {
     id: '02',
-    label: 'UI/UX Design',
-    description: 'Intuitive, conversion-focused interfaces designed around your users. We craft experiences that are both visually compelling and functionally seamless.',
-    solutions: ['User research & wireframing', 'Responsive UI design', 'Prototype & usability testing', 'Design systems'],
+    label: 'SEO-Optimized Structure',
+    description: 'We build with search engines in mind from day one — clean semantic markup, structured data, and a site architecture that makes it easy for Google to crawl and rank your content.',
+    solutions: ['Semantic HTML5 markup', 'Meta & schema setup', 'Sitemap & robots.txt', 'Core Web Vitals focus'],
   },
   {
     id: '03',
-    label: 'Mobile App Development',
-    description: 'Scalable mobile applications for iOS and Android, built to perform and grow with your business across the European market.',
-    solutions: ['iOS & Android apps', 'Cross-platform development', 'App store deployment', 'Ongoing maintenance'],
+    label: 'Fast Loading Performance',
+    description: 'Speed is a feature. We optimize every layer — from compressed assets and lazy loading to CDN integration — so your site loads fast and keeps users engaged.',
+    solutions: ['Image & asset optimization', 'Code splitting & minification', 'CDN integration', 'Lighthouse score tuning'],
   },
   {
     id: '04',
-    label: 'Social Media Management',
-    description: 'Strategic content and community management that builds brand authority and drives consistent engagement with your target audience.',
-    solutions: ['Content strategy & creation', 'Platform management', 'Paid social campaigns', 'Analytics & reporting'],
-  },
-  {
-    id: '05',
-    label: 'Identity Design',
-    description: 'Distinctive brand identities that communicate your values clearly and leave a lasting impression across every digital and physical touchpoint.',
-    solutions: ['Logo & visual identity', 'Brand guidelines', 'Marketing collateral', 'Brand strategy'],
+    label: 'GDPR-Compliant',
+    description: 'Data privacy is built into every project, not bolted on. We implement cookie consent, secure data handling, and privacy-first practices that keep your site compliant from launch.',
+    solutions: ['Cookie consent management', 'Privacy policy integration', 'Secure data handling', 'GDPR audit & compliance'],
   },
 ];
 
 const stats = [
-  { value: '22K',  label: 'Projects Completed' },
-  { value: '612K', label: 'Clients Served' },
+  { value: '100+',  label: 'Projects Completed' },
+  { value: '250+', label: 'Clients Served' },
 ];
 
 export default function Services() {
@@ -59,7 +52,7 @@ export default function Services() {
       >
         {/* Section label + heading */}
         <div className="text-center mb-8 sm:mb-12">
-          <p className="text-[#6dbf67] text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-3 sm:mb-4">
+          <p className="text-[#e01b45] text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-3 sm:mb-4">
             + Our Services
           </p>
           <h2
@@ -128,47 +121,27 @@ export default function Services() {
               />
             </div>
 
-            {/* Avatar + dynamic description */}
-            <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden flex-shrink-0 border border-white/10">
-                <img src={servicesAvatar} alt="" className="w-full h-full object-cover" />
-              </div>
+            {/* Dynamic description + solutions */}
+            <div>
+              <p className="text-white/40 text-xs sm:text-sm font-normal leading-relaxed mb-3">
+                {current.description}
+              </p>
 
-              <div className="flex-1 pt-1">
-                {/* Active service description */}
-                <p className="text-white/40 text-xs sm:text-sm font-normal leading-relaxed mb-3">
-                  {current.description}
-                </p>
-
-                {/* Solutions pills */}
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {current.solutions.map((s) => (
-                    <span
-                      key={s}
-                      className="text-[10px] sm:text-xs px-3 py-1 rounded-full font-medium"
-                      style={{
-                        background: 'rgba(232,67,90,0.12)',
-                        color: 'rgba(232,67,90,0.85)',
-                        border: '1px solid rgba(232,67,90,0.2)',
-                      }}
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Learn more */}
-                <button className="flex items-center gap-2 group">
-                  <span className="text-white/60 text-[10px] sm:text-xs font-semibold tracking-widest uppercase group-hover:text-white transition-colors">
-                    Learn More
+              {/* Solutions pills */}
+              <div className="flex flex-wrap gap-2">
+                {current.solutions.map((s) => (
+                  <span
+                    key={s}
+                    className="text-[10px] sm:text-xs px-3 py-1 rounded-full font-medium"
+                    style={{
+                      background: 'rgba(232,67,90,0.12)',
+                      color: 'rgba(232,67,90,0.85)',
+                      border: '1px solid rgba(232,67,90,0.2)',
+                    }}
+                  >
+                    {s}
                   </span>
-                  <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#e8435a] flex items-center justify-center">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </span>
-                </button>
+                ))}
               </div>
             </div>
           </div>

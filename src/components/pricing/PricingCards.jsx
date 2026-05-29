@@ -4,7 +4,7 @@ const plans = [
     priceFrom: '350,000',
     priceTo: '450,000',
     features: [
-      'Up to 4 fully responsive pages',
+      'Up to 6 fully responsive pages',
       'React SPA (Single-Page Application)',
       'Component-based architecture',
       'Mobile-first responsive design',
@@ -41,7 +41,7 @@ const plans = [
     priceFrom: '750,000',
     priceTo: null,
     features: [
-      'Unlimited pages & custom features',
+      '12 pages & custom features',
       'React / Next.js application',
       'eCommerce & payment integration',
       'Mobile-first responsive design',

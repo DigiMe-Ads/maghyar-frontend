@@ -21,7 +21,7 @@ export default function WhoWeAre() {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className="absolute bottom-10 right-10 w-10 h-10 rounded-full flex items-center justify-center z-10 hover:opacity-80 transition-opacity"
-        style={{ background: '#6dbf67' }}
+        style={{ background: '#e01b45' }}
         aria-label="Scroll to top"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -86,7 +86,7 @@ export default function WhoWeAre() {
         <div className="flex-1">
 
           {/* Label */}
-          <p className="flex items-center gap-1 text-[#6dbf67] text-xs font-bold tracking-widest uppercase mb-5">
+          <p className="flex items-center gap-1 text-[#e01b45] text-xs font-bold tracking-widest uppercase mb-5">
             <span>+</span>WHO WE ARE
           </p>
 

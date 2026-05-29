@@ -1,10 +1,10 @@
 import featuresImg from '../../assets/about/features.png';
 
 const features = [
-  { title: 'Email Marketing',      tags: ['Online Branding', 'App Promotion'],  active: true },
-  { title: 'Content Marketing',    tags: ['App Promotion',   'Online Branding'] },
-  { title: 'Analytics & Strategy', tags: ['App Promotion',   'App Promotion']   },
-  { title: 'Creative Design',      tags: ['Product Branding','Event Promotion'] },
+  { title: 'Corporate Websites',          tags: ['Business Solutions', 'Web Presence'],     active: true },
+  { title: 'Landing & Campaign Pages',    tags: ['Lead Generation',   'Conversions'] },
+  { title: 'E-commerce Platforms',        tags: ['Online Store',      'Payment Integration'] },
+  { title: 'Custom Web Applications',     tags: ['Tailored Solutions','Scalable Build'] },
 ];
 
 export default function FeaturesSection() {
@@ -19,7 +19,7 @@ export default function FeaturesSection() {
         <div className="lg:w-1/2 flex-shrink-0 flex flex-col gap-8">
           {/* Header */}
           <div>
-            <p className="text-[#6dbf67] text-xs font-semibold tracking-widest uppercase mb-3">
+            <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-3">
               + Features
             </p>
             <h2

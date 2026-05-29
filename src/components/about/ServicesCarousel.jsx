@@ -3,50 +3,34 @@ import swirl1  from '../../assets/about-3d-swirl.png';
 import liquid  from '../../assets/features-liquid.png';
 import swirl2  from '../../assets/case-3d-swirl.png';
 import bulb    from '../../assets/features-bulb.png';
-import flower  from '../../assets/3d-flower.png';
-import cage    from '../../assets/features-cage.png';
 
 const slides = [
   [
     {
-      category: 'Design',
-      title: 'Creative Design and Development',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      category: 'Corporate',
+      title: 'Corporate Websites',
+      description: 'We design and build professional corporate websites that reflect your brand and communicate your value — with clean architecture, fast performance, and easy content management built in from day one.',
       shape: swirl1,
     },
     {
-      category: 'Marketing',
-      title: 'Digital Marketing Strategies',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      category: 'Campaigns',
+      title: 'Landing & Campaign Pages',
+      description: 'Conversion-focused landing pages built for your marketing campaigns — optimized for speed, designed to guide visitors toward a single goal, and ready to integrate with your existing ad and email workflows.',
       shape: liquid,
     },
   ],
   [
     {
-      category: 'Branding',
-      title: 'Brand Identity & Strategy',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      category: 'E-commerce',
+      title: 'E-commerce Platforms',
+      description: 'Full-featured online stores with secure checkout, product management, and seamless payment integration. We build e-commerce solutions that are intuitive for your customers and easy for your team to manage.',
       shape: swirl2,
     },
     {
-      category: 'Analytics',
-      title: 'Data-Driven Analytics Solutions',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-      shape: bulb,
-    },
-  ],
-  [
-    {
-      category: 'Creative',
-      title: 'Creative Content Production',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-      shape: flower,
-    },
-    {
       category: 'Development',
-      title: 'Web & App Development',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-      shape: cage,
+      title: 'Custom Web Applications',
+      description: 'Bespoke web applications engineered around your specific business logic and workflows. Built with modern technologies, designed to scale, and maintained with long-term reliability in mind.',
+      shape: bulb,
     },
   ],
 ];
@@ -61,7 +45,7 @@ export default function ServicesCarousel() {
     >
       {/* ── Section header ── */}
       <div className="text-center mb-12">
-        <p className="text-[#6dbf67] text-xs font-semibold tracking-widest uppercase mb-4">
+        <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-4">
           + Our Service
         </p>
         <h2

@@ -43,7 +43,7 @@ export default function CaseStudies() {
 
       {/* ── Section header ── */}
       <div className="text-center mb-12">
-        <p className="text-[#6dbf67] text-xs font-semibold tracking-widest uppercase mb-4">
+        <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-4">
           + Featured Project
         </p>
         <h2

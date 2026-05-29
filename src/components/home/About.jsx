@@ -5,15 +5,8 @@
 //   about-3d-swirl.png     — iridescent chrome swirl/shell (top right)
 
 import aboutTeam  from '../../assets/about-team.jpg';
-import aboutBadge from '../../assets/about-logo-badge.png';
 import aboutSwirl from '../../assets/about-3d-swirl.png';
 
-const avatars = [
-  'https://i.pravatar.cc/40?img=1',
-  'https://i.pravatar.cc/40?img=2',
-  'https://i.pravatar.cc/40?img=3',
-  'https://i.pravatar.cc/40?img=4',
-];
 
 export default function About() {
   return (
@@ -29,7 +22,7 @@ export default function About() {
         <div className="flex-1 max-w-3xl">
           {/* Label row — inline with heading on mobile too */}
           <div className="flex items-center gap-4 mb-4 sm:mb-5">
-            <p className="text-[#6dbf67] text-[10px] sm:text-xs font-semibold tracking-widest uppercase whitespace-nowrap">
+            <p className="text-[#e01b45] text-[10px] sm:text-xs font-semibold tracking-widest uppercase whitespace-nowrap">
               + Who We Are
             </p>
           </div>
@@ -38,10 +31,10 @@ export default function About() {
             className="text-white font-bold leading-tight"
             style={{ fontSize: 'clamp(1.45rem, 3.5vw, 2.75rem)' }}
           >
-            We Are A Creative Design Agency Helping
-            Brands Grow Through&nbsp;
+            We Build Modern Web Experiences That
+            Drive&nbsp;
             <span className="text-[#e8435a] italic font-bold">
-              Strategy, Design,<br className="hidden sm:block" /> And Innovation
+              Real Results<br className="hidden sm:block" /> For Your Business
             </span>
           </h2>
         </div>
@@ -75,29 +68,18 @@ export default function About() {
             style={{ maxHeight: '360px', minHeight: '220px' }}
           />
 
-          {/* Circular rotating badge — smaller on mobile */}
-          <div
-            className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 rounded-full overflow-hidden shadow-2xl border-4 border-white/10"
-            style={{
-              width: 'clamp(80px, 12vw, 112px)',
-              height: 'clamp(80px, 12vw, 112px)',
-              animation: 'spinSlow 12s linear infinite',
-            }}
-          >
-            <img src={aboutBadge} alt="Welcome badge" className="w-full h-full object-cover" />
-          </div>
         </div>
 
         {/* Stats panel */}
         <div className="flex flex-row lg:flex-col justify-between lg:justify-center gap-4 lg:gap-6 lg:w-52 flex-shrink-0 py-2 lg:py-0">
 
-          {/* 16 Years */}
+          {/* 6 Years */}
           <div className="flex items-center gap-2 sm:gap-3">
             <span
               className="font-black text-[#e8435a] leading-none"
               style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)' }}
             >
-              16
+              6
             </span>
             <div className="flex flex-col">
               <span
@@ -113,59 +95,18 @@ export default function About() {
             </div>
           </div>
 
-          {/* Avatars + review count */}
-          <div className="flex flex-col gap-2 items-end lg:items-start">
-            <div className="flex items-center">
-              {avatars.map((src, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 border-[#0a0a0a] flex-shrink-0"
-                  style={{ marginLeft: i === 0 ? 0 : '-10px', zIndex: avatars.length - i }}
-                >
-                  <img src={src} alt="" className="w-full h-full object-cover" />
-                </div>
-              ))}
-              <div
-                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 border-2 border-[#0a0a0a] flex items-center justify-center flex-shrink-0 text-white text-xs sm:text-sm font-semibold"
-                style={{ marginLeft: '-10px' }}
-              >
-                +
-              </div>
-            </div>
-            <p className="text-white/50 text-[11px] sm:text-xs font-normal text-right leading-snug">
-              More Then 25k Clients<br />Reviews
-            </p>
-          </div>
         </div>
       </div>
 
-      {/* ── Bottom row: quote card + body text + CTA ── */}
+      {/* ── Bottom row: body text + CTA ── */}
       <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 items-start">
 
-        {/* Quote card */}
-        <div
-          className="w-full lg:w-[55%] flex-shrink-0 rounded-2xl p-5 sm:p-7 relative"
-          style={{ background: '#161616' }}
-        >
-          {/* Large green double-quote marks */}
-          <span
-            className="text-[#6dbf67] font-black leading-none select-none block mb-1 sm:mb-2"
-            style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', lineHeight: 1 }}
-          >
-            "
-          </span>
-          <p className="text-white/70 text-sm font-normal leading-relaxed">
-            True progress is made not in isolation, but in partnership—with those who trust us,
-            challenge us, and grow with us.
-          </p>
-        </div>
-
-        {/* Right: body text + CTA */}
-        <div className="w-full lg:w-[45%] flex flex-col justify-between gap-5 sm:gap-6 pt-0 lg:pt-2">
+        {/* Body text + CTA */}
+        <div className="w-full flex flex-col justify-between gap-5 sm:gap-6 pt-0 lg:pt-2">
           <p className="text-white/40 text-sm font-normal leading-relaxed">
-            It is a long established fact that a reader will be distracted by the readable
-            content of a page when looking at its layout. The point of using Lorem
-            Ipsum is that it has a more-or-less normal.
+            With over 6 years of experience, we craft responsive, high-performance websites
+            and web applications built to meet your business goals — from sleek corporate
+            sites to fully custom platforms, all optimized for speed and search.
           </p>
 
           <div className="flex items-center gap-3">
@@ -205,11 +146,6 @@ export default function About() {
           0%, 100% { transform: translateY(0px); }
           50%       { transform: translateY(-14px); }
         }
-        @keyframes spinSlow {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
-        }
-
         /* Responsive layout tweaks below md */
         @media (max-width: 640px) {
           /* Stack stats vertically under the image on very small screens */

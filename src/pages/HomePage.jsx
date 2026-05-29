@@ -9,6 +9,7 @@ import Benefits from '../components/home/Benefits';
 import Testimonials from '../components/home/Testimonials';
 import Blog from '../components/home/Blog';
 import Marquee from '../components/home/Marquee';
+import ContactCta from '../components/home/ContactCta';
 import CaseStudies from '../components/home/CaseStudies';
 
 export default function HomePage() {
@@ -20,11 +21,12 @@ export default function HomePage() {
       <Services />
 <CaseStudies />
       <WhyChooseUs />
-      <Faq />
+      {/* <Faq />
       <Team />
       <Benefits />
       <Testimonials />
-      <Blog />
+      <Blog /> */}
+      <ContactCta />
       <Marquee />
     </main>
   );

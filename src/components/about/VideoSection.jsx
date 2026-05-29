@@ -28,7 +28,7 @@ export default function VideoSection() {
             width: 160,
             height: 160,
             borderRadius: '50%',
-            border: '28px solid #6dbf67',
+            border: '28px solid #e01b45',
             opacity: 0.9,
             filter: 'drop-shadow(0 6px 14px rgba(0,0,0,0.5))',
           }}

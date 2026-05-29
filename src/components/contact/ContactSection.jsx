@@ -58,7 +58,7 @@ export default function ContactSection() {
 
             {/* Top: label + heading */}
             <div className="relative z-10">
-              <p className="text-[#6dbf67] text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-1">
+              <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-1">
                 <span>+</span> GET IN TOUCH
               </p>
               <h2

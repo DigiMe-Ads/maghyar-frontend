@@ -43,7 +43,7 @@ export default function Blog() {
 
       {/* ── Section header ── */}
       <div className="text-center mb-14">
-        <p className="flex items-center justify-center gap-1 text-[#6dbf67] text-xs font-bold tracking-widest uppercase mb-4">
+        <p className="flex items-center justify-center gap-1 text-[#e01b45] text-xs font-bold tracking-widest uppercase mb-4">
           <span className="font-extrabold">+</span>OUR BLOG
         </p>
         <h2 className="leading-tight" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)' }}>

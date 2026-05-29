@@ -125,7 +125,7 @@ export default function Faq() {
 
       {/* ── Section header ── */}
       <div className="text-center mb-10 sm:mb-14">
-        <p className="flex items-center justify-center gap-1 text-[#6dbf67] text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-4">
+        <p className="flex items-center justify-center gap-1 text-[#e01b45] text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-4">
           <span className="font-extrabold">+</span>FAQS
         </p>
 

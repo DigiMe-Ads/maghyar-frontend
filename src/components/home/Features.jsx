@@ -14,7 +14,7 @@ import featuresStar   from '../../assets/features-star.png';
 import featuresLiquid from '../../assets/features-liquid.png';
 import featuresDial   from '../../assets/features-dial.png';
 
-const tags = ['Email Marketing', 'Affiliate Marketing', 'Analytics and Reporting'];
+const tags = ['Landing Pages', 'E-commerce Platforms', 'Custom Web Apps'];
 
 export default function Features() {
   return (
@@ -32,20 +32,20 @@ export default function Features() {
 
       {/* ── Section header ── */}
       <div className="relative z-10 text-center mb-12">
-        <p className="text-[#6dbf67] text-xs font-semibold tracking-widest uppercase mb-3">
+        <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-3">
           + Our Features
         </p>
         <h2
           className="text-white font-normal leading-tight mb-6"
           style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)' }}
         >
-          <span className="font-black">PowerfulFeatures</span>
-          <span className="text-white/40 font-normal">to Simplify</span>
+          <span className="font-black">Web Solutions </span>
+          <span className="text-white/40 font-normal">Built to Perform</span>
         </h2>
-        <p className="text-white/40 text-sm font-normal leading-relaxed max-w-lg mx-auto">
+        {/* <p className="text-white/40 text-sm font-normal leading-relaxed max-w-lg mx-auto">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
           been the industry's standard dummy.
-        </p>
+        </p> */}
       </div>
 
       {/* ── Bento grid ── */}
@@ -58,9 +58,9 @@ export default function Features() {
           style={{ background: '#161616' }}
         >
           <div>
-            <p className="text-white text-base font-semibold mb-1">UI/UX Design</p>
+            <p className="text-white text-base font-semibold mb-1">Web Development</p>
             <p className="text-white/40 text-sm font-normal leading-relaxed">
-              Sassly-CRM in the past allowing you to
+              Modern, responsive websites tailored to your business goals
             </p>
           </div>
           <div className="flex justify-center items-end mt-4">
@@ -86,11 +86,11 @@ export default function Features() {
                 className="text-white font-black leading-tight mb-3"
                 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)' }}
               >
-                Creative&amp; Unique<br />
-                <span className="text-white/40 font-normal">Design</span>
+                Modern &amp; Responsive<br />
+                <span className="text-white/40 font-normal">Web Solutions</span>
               </h3>
               <p className="text-white/40 text-sm font-normal leading-relaxed mb-5 max-w-xs">
-                Through strategy, design, and technology ideas to life with
+                From corporate sites to full e-commerce platforms, built with a mobile-first approach
               </p>
               {/* Tag pills */}
               <div className="flex flex-wrap gap-2">
@@ -129,10 +129,10 @@ export default function Features() {
               className="text-white font-black leading-tight"
               style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
             >
-              Research-driven<br />
-              <span className="text-white/50 font-normal">design</span>
+              SEO-Optimized<br />
+              <span className="text-white/50 font-normal">&amp; Fast</span>
               <br />
-              <span className="text-white/50 font-normal">strategies</span>
+              <span className="text-white/50 font-normal">by Default</span>
             </h3>
           </div>
           {/* Arrow button */}
@@ -170,7 +170,7 @@ export default function Features() {
           </div>
           <div className="mt-4">
             <p className="text-white text-sm font-semibold leading-tight">
-              Motion Graphics &amp; Animation
+              Custom Web Applications
             </p>
           </div>
         </div>
@@ -182,13 +182,13 @@ export default function Features() {
         >
           <div>
             <p className="text-white/70 text-[10px] font-semibold tracking-widest uppercase mb-2">
-              Excellent Performance
+              Compliance Ready
             </p>
             <h3
               className="text-white font-black leading-tight"
               style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)' }}
             >
-              Designs that strengthen<br />brand identity
+              GDPR-Compliant<br />from the ground up
             </h3>
           </div>
           <div className="flex justify-center mt-3">

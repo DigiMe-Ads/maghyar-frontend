@@ -39,7 +39,7 @@ export default function Team() {
 
         {/* ── Left: heading + member list ── */}
         <div className="lg:w-[44%] flex-shrink-0">
-          <p className="flex items-center gap-1 text-[#6dbf67] text-xs font-bold tracking-widest uppercase mb-4">
+          <p className="flex items-center gap-1 text-[#e01b45] text-xs font-bold tracking-widest uppercase mb-4">
             <span>+</span>WHY CHOOSE US
           </p>
           <h2 className="leading-tight mb-8" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)' }}>
