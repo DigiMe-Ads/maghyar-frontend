@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        heading: ['Rajdhani', 'sans-serif'],
       },
       colors: {
         accent: '#e8435a',
