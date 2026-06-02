@@ -4,23 +4,30 @@
 //   case-mockup.jpg     — tablet/laptop mockup on desk (project 2)
 //   case-3d-swirl.png   — chrome propeller/swirl 3D object (bottom left)
 
-import casePhone  from '../../assets/case-phone.jpg';
-import caseMockup from '../../assets/case-mockup.jpg';
-import caseSwirl  from '../../assets/case-3d-swirl.png';
+import funholidays from '../../assets/fun-holidays.png';
+import molecules from '../../assets/molecules.png';
+import synexiseducation from '../../assets/synexis-education.png';
+import caseSwirl from '../../assets/case-3d-swirl.png';
 
 const projects = [
   {
     id: 1,
-    tags: ['Branding /', 'UI/UX Design'],
-    title: 'Products Advertisement',
-    image: casePhone,
+    tags: ['Website'],
+    title: 'Fun Holiday',
+    image: funholidays,
   },
   {
     id: 2,
-    tags: ['Branding /', 'Mockup'],
-    title: 'Mock-up Design',
-    image: caseMockup,
+    tags: ['Website'],
+    title: 'Molecules',
+    image: molecules,
   },
+  {
+    id: 3,
+    tags: ['Website'],
+    title: 'Synexis Education',
+    image: synexiseducation,
+  }
 ];
 
 export default function CaseStudies() {
@@ -74,7 +81,7 @@ export default function CaseStudies() {
             />
 
             {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/40" />
 
             {/* Content */}
             <div className="relative z-10 flex flex-col justify-between h-full p-6" style={{ minHeight: '260px' }}>
@@ -99,7 +106,7 @@ export default function CaseStudies() {
                 </h3>
 
                 {/* Arrow button */}
-                <a
+                {/* <a
                   href="#"
                   aria-label={`View ${project.title}`}
                   className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform"
@@ -112,7 +119,7 @@ export default function CaseStudies() {
                     <line x1="5" y1="19" x2="19" y2="5" />
                     <polyline points="5 5 19 5 19 19" />
                   </svg>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
