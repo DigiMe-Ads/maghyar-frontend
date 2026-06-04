@@ -22,12 +22,12 @@ const projects = [
     title: 'Molecules',
     image: molecules,
   },
-  {
-    id: 3,
-    tags: ['Website'],
-    title: 'Synexis Education',
-    image: synexiseducation,
-  }
+  // {
+  //   id: 3,
+  //   tags: ['Website'],
+  //   title: 'Synexis Education',
+  //   image: synexiseducation,
+  // }
 ];
 
 export default function CaseStudies() {
