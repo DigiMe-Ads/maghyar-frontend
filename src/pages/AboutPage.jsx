@@ -9,7 +9,7 @@ export default function AboutPage() {
     <main>
       <PageHero title="About" />
       <WhoWeAre />
-      <VideoSection />
+      {/* <VideoSection /> */}
       <FeaturesSection />
       <ServicesCarousel />
     </main>
