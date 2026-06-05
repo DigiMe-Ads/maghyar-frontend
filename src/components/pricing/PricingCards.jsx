@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+const ACCESS_KEY = 'd641238d-0554-48c5-8250-97c79c7a9446';
+
 const plans = [
   {
     name: 'Starter Website',
@@ -56,11 +60,159 @@ const plans = [
   },
 ];
 
+const inputStyle = {
+  background: 'transparent',
+  border: 'none',
+  borderBottom: '1px solid rgba(255,255,255,0.15)',
+  color: 'rgba(255,255,255,0.85)',
+  padding: '10px 0',
+  outline: 'none',
+  width: '100%',
+  fontSize: '0.85rem',
+  fontFamily: "'Inter', sans-serif",
+};
+
 const CheckIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8435a" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
+
+function QuoteDialog({ plan, onClose }) {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `Quote Request — ${plan.name} — Magyar Digital`,
+          name: form.name,
+          email: form.email,
+          message: `Plan: ${plan.name}\nPrice range: HUF ${plan.priceFrom}${plan.priceTo ? ` – ${plan.priceTo}` : '+'}\nPhone: ${form.phone || 'N/A'}\n\n${form.message || 'No additional message.'}`,
+        }),
+      });
+      const data = await res.json();
+      setStatus(data.success ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)' }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-md rounded-2xl p-8"
+        style={{ background: '#161616', border: '1px solid rgba(255,255,255,0.1)', fontFamily: "'Inter', sans-serif" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute top-5 right-5 flex items-center justify-center w-7 h-7 rounded-full hover:opacity-70 transition-opacity"
+          style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)', fontSize: '1rem', lineHeight: 1 }}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        {/* Header */}
+        <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-2 flex items-center gap-1">
+          <span>+</span> GET A QUOTE
+        </p>
+        <h3 className="text-white font-bold mb-1" style={{ fontSize: '1.25rem' }}>
+          {plan.name}
+        </h3>
+        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', marginBottom: '1.75rem' }}>
+          HUF {plan.priceFrom}{plan.priceTo ? ` – ${plan.priceTo}` : '+'} · one-time project fee
+        </p>
+
+        {status === 'success' ? (
+          <div className="text-center py-8">
+            <p className="text-white font-semibold mb-2">Request sent!</p>
+            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.83rem' }}>
+              We'll get back to you shortly with a tailored quote.
+            </p>
+            <button
+              onClick={onClose}
+              className="mt-6 px-8 py-3 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity"
+              style={{ background: '#e8435a' }}
+            >
+              Close
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <style>{`
+              .quote-input::placeholder { color: rgba(255,255,255,0.25); }
+            `}</style>
+
+            <input
+              className="quote-input"
+              style={inputStyle}
+              placeholder="Your full name *"
+              value={form.name}
+              onChange={set('name')}
+              required
+            />
+            <input
+              className="quote-input"
+              style={inputStyle}
+              type="email"
+              placeholder="Email address *"
+              value={form.email}
+              onChange={set('email')}
+              required
+            />
+            <input
+              className="quote-input"
+              style={inputStyle}
+              type="tel"
+              placeholder="Phone number"
+              value={form.phone}
+              onChange={set('phone')}
+            />
+            <textarea
+              className="quote-input"
+              style={{ ...inputStyle, resize: 'none', minHeight: 80, borderBottom: '1px solid rgba(255,255,255,0.15)' }}
+              placeholder="Tell us about your project (optional)"
+              value={form.message}
+              onChange={set('message')}
+              rows={3}
+            />
+
+            {status === 'error' && (
+              <p style={{ color: '#e8435a', fontSize: '0.78rem' }}>
+                Something went wrong. Please try again.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full py-3.5 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ background: '#e8435a', letterSpacing: '0.1em' }}
+            >
+              {status === 'loading' ? 'Sending…' : 'Send Quote Request'}
+            </button>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function PriceDisplay({ from, to }) {
   return (
@@ -84,7 +236,7 @@ function PriceDisplay({ from, to }) {
   );
 }
 
-function PricingCard({ plan }) {
+function PricingCard({ plan, onQuote }) {
   return (
     <div className="relative">
       {plan.recommended && (
@@ -140,6 +292,7 @@ function PricingCard({ plan }) {
 
         <button
           type="button"
+          onClick={() => onQuote(plan)}
           className="w-full py-3.5 rounded-full text-white text-sm font-normal tracking-wide hover:opacity-85 transition-opacity"
           style={{ background: '#1e1e1e' }}
         >
@@ -151,6 +304,8 @@ function PricingCard({ plan }) {
 }
 
 export default function PricingCards() {
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
   return (
     <section
       className="w-full bg-[#0a0a0a] px-5 md:px-10 lg:px-16 py-16"
@@ -161,9 +316,13 @@ export default function PricingCards() {
         style={{ alignItems: 'end', paddingTop: 56 }}
       >
         {plans.map((plan, i) => (
-          <PricingCard key={i} plan={plan} />
+          <PricingCard key={i} plan={plan} onQuote={setSelectedPlan} />
         ))}
       </div>
+
+      {selectedPlan && (
+        <QuoteDialog plan={selectedPlan} onClose={() => setSelectedPlan(null)} />
+      )}
     </section>
   );
 }

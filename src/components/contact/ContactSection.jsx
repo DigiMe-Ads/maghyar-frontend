@@ -17,12 +17,42 @@ const placeholderColor = `
   input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
 `;
 
+const ACCESS_KEY = 'd641238d-0554-48c5-8250-97c79c7a9446';
+
 export default function ContactSection() {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', needs: '', subject: '',
   });
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const handleSubmit = async (requestType) => {
+    if (!form.name || !form.email) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: form.subject || `${requestType} — Magyar Digital`,
+          name: form.name,
+          email: form.email,
+          message: `Request type: ${requestType}\nPhone: ${form.phone || 'N/A'}\nNeeds: ${form.needs || 'N/A'}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('success');
+        setForm({ name: '', email: '', phone: '', needs: '', subject: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
 
   return (
     <section
@@ -136,17 +166,31 @@ export default function ContactSection() {
 
             {/* Submit */}
             <div>
+              {status === 'success' && (
+                <p className="mb-4 text-xs font-semibold" style={{ color: '#4ade80' }}>
+                  Message sent! We'll be in touch shortly.
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="mb-4 text-xs font-semibold" style={{ color: '#e8435a' }}>
+                  Something went wrong. Please try again.
+                </p>
+              )}
               <div className="flex flex-wrap gap-3">
                 <button
                   type="button"
-                  className="px-8 py-3.5 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity"
+                  disabled={status === 'loading'}
+                  onClick={() => handleSubmit('Book a Free Consultation')}
+                  className="px-8 py-3.5 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ background: '#e8435a', letterSpacing: '0.1em' }}
                 >
-                  Book a Free Consultation
+                  {status === 'loading' ? 'Sending…' : 'Book a Free Consultation'}
                 </button>
                 <button
                   type="button"
-                  className="px-8 py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity"
+                  disabled={status === 'loading'}
+                  onClick={() => handleSubmit('Request a Proposal')}
+                  className="px-8 py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}
                 >
                   Request a Proposal
