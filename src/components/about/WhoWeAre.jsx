@@ -59,7 +59,7 @@ export default function WhoWeAre() {
           </div>
 
           {/* Badge — bottom left, overlapping both images */}
-          <div
+          {/* <div
             className="absolute z-20"
             style={{ bottom: 'clamp(60px, 10vw, 100px)', left: 4, width: 110, height: 110 }}
           >
@@ -79,7 +79,7 @@ export default function WhoWeAre() {
             >
               <span className="text-white font-black leading-none" style={{ fontSize: '1.5rem' }}>EU</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ── Right: content ── */}
