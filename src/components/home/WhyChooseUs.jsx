@@ -3,7 +3,7 @@ import featuresWire from '../../assets/features-wire.png';
 import photo1        from '../../assets/case-phone.jpg';
 import aboutTeam    from '../../assets/case-mockup.jpg';
 import servicesTeam from '../../assets/about-team.jpg';
-import extraImg     from '../../assets/about-team.jpg';
+import extraImg     from '../../assets/photo-2.jpg';
 
 const features = [
   { id: '01', title: 'Transparent',        subtitle: 'Pricing',              desc: 'Clear quotes before any work begins — no hidden fees or surprise invoices.' },

@@ -72,7 +72,7 @@ export default function Hero() {
               className="rounded-2xl overflow-hidden shadow-2xl"
               style={{ transform: 'rotate(-7deg)', border: '3px solid rgba(255,255,255,0.12)' }}
             >
-              <img src={photo1} alt="Team collaboration" className="w-full h-auto block object-cover" />
+              <img src={photo1} alt="Magyar Digital webfejlesztő csapat Budapest" className="w-full h-auto block object-cover" />
             </div>
           </div>
 
@@ -91,7 +91,7 @@ export default function Hero() {
               className="rounded-2xl overflow-hidden shadow-2xl"
               style={{ transform: 'rotate(9deg)', border: '3px solid rgba(255,255,255,0.12)' }}
             >
-              <img src={photo2} alt="Team working" className="w-full h-auto block object-cover" />
+              <img src={photo2} alt="Magyar Digital webdesign csapat Budapest" className="w-full h-auto block object-cover" />
             </div>
           </div>
 

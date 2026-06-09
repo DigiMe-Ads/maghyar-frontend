@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import swirl1  from '../../assets/about-3d-swirl.png';
 import liquid  from '../../assets/features-liquid.png';
 import swirl2  from '../../assets/case-3d-swirl.png';
@@ -113,13 +114,14 @@ export default function ServicesCarousel() {
 
               {/* CTA buttons */}
               <div className="flex items-center gap-3 mt-5">
-                <button
+                <Link
+                  to="/contact"
                   className="px-5 py-2.5 rounded-full text-white text-xs font-semibold tracking-wide hover:opacity-90 transition-opacity"
                   style={{ background: '#e8435a', fontSize: '0.78rem' }}
                 >
-                  Read More
-                </button>
-                <button
+                  Get a Quote
+                </Link>
+                {/* <button
                   aria-label="Arrow"
                   className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-105 transition-transform"
                   style={{ background: '#000' }}
@@ -128,7 +130,7 @@ export default function ServicesCarousel() {
                     <line x1="5" y1="19" x2="19" y2="5" />
                     <polyline points="5 5 19 5 19 19" />
                   </svg>
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

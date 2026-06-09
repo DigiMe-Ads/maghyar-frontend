@@ -41,7 +41,7 @@ export default function WhoWeAre() {
             className="rounded-2xl overflow-hidden"
             style={{ width: '70%', height: 'clamp(380px, 46vw, 520px)' }}
           >
-            <img src={photo2} alt="Office space" className="w-full h-full object-cover object-center" />
+            <img src={photo2} alt="Magyar Digital iroda Budapest webfejlesztés" className="w-full h-full object-cover object-center" />
           </div>
 
           {/* Smaller overlapping image — bottom right */}
@@ -55,7 +55,7 @@ export default function WhoWeAre() {
               border: '4px solid #0a0a0a',
             }}
           >
-            <img src={aboutTeam} alt="Team collaboration" className="w-full h-full object-cover object-center" />
+            <img src={aboutTeam} alt="Weboldal készítő csapat Magyarország" className="w-full h-full object-cover object-center" />
           </div>
 
           {/* Badge — bottom left, overlapping both images */}
