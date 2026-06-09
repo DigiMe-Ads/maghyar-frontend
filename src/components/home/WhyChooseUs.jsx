@@ -3,7 +3,7 @@ import featuresWire from '../../assets/features-wire.png';
 import photo1        from '../../assets/case-phone.jpg';
 import aboutTeam    from '../../assets/case-mockup.jpg';
 import servicesTeam from '../../assets/about-team.jpg';
-import extraImg     from '../../assets/about-team.jpg'; // add a 4th if you have one
+import extraImg     from '../../assets/about-team.jpg';
 
 const features = [
   { id: '01', title: 'Transparent',        subtitle: 'Pricing',              desc: 'Clear quotes before any work begins — no hidden fees or surprise invoices.' },
@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
       <div className="flex flex-col lg:flex-row gap-8 items-stretch relative">
 
         {/* ── Left: Rolling Carousel ── */}
-        <div className="hidden lg:block flex-shrink-0 overflow-hidden rounded-2xl" style={{ width: 220, height: 420 }}>
+        <div className="hidden lg:block flex-shrink-0 overflow-hidden rounded-2xl" style={{ width: 220, height: 820 }}>
           <div
             ref={trackRef}
             style={{
@@ -65,8 +65,8 @@ export default function WhyChooseUs() {
         <div className="flex-1 flex flex-col justify-center relative">
 
           {/* Label */}
-          <p className="text-xs font-bold tracking-widest uppercase mb-5 flex items-center gap-1" style={{ color: '#5fc95a' }}>
-            <span style={{ color: '#5fc95a', fontWeight: 800, fontSize: 14 }}>+</span> Why Choose Us
+          <p className="text-xs font-bold tracking-widest uppercase mb-5 flex items-center gap-1" style={{ color: '#e8435a' }}>
+            <span style={{ color: '#e8435a', fontWeight: 800, fontSize: 14 }}>+</span> Why Choose Us
           </p>
 
           {/* Heading */}
@@ -74,7 +74,7 @@ export default function WhyChooseUs() {
             style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', zIndex: 2 }}>
             Here's Why Brands Trust Our{' '}
             <span style={{ color: '#e8435a', fontStyle: 'italic' }}>E</span>
-            <span style={{ color: 'rgba(255,255,255,0.18)', fontStyle: 'italic', fontWeight: 400 }}>xpertise</span>
+            <span style={{ color: '#e8435a', fontStyle: 'italic', fontWeight: 400 }}>xpertise</span>
           </h2>
 
           {/* Feature cards grid */}

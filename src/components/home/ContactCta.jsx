@@ -4,7 +4,7 @@ const offerings = [
   'Social Media Management',
   'Creative Designing',
   'Google Ads',
-  'PPC Campaigns',
+  'SEO Optimization',
 ];
 
 function ContactModal({ onClose }) {

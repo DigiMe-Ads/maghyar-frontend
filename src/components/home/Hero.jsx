@@ -133,75 +133,26 @@ export default function Hero() {
           {/* Thin top divider */}
           <div className="w-full h-px bg-white/10 mb-8" />
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-
-            {/* Left: description + avatar */}
-            <div style={{ maxWidth: '380px' }}>
-              <p className="text-white/50 text-sm font-normal leading-relaxed mb-5">
-                We help businesses transform ideas into powerful digital solutions.
-                Let's discuss your project today.
-              </p>
-
-              <div className="flex items-center gap-3">
-                {/* Avatar */}
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/15 flex-shrink-0">
-                  <img src={avatar} alt="Qmanda Lee" className="w-full h-full object-cover" />
-                </div>
-
-                {/* Signature + name */}
-                <div className="flex flex-col">
-                  <svg viewBox="0 0 120 32" className="w-28 h-8 mb-1" fill="none">
-                    <path
-                      d="M4 24 C12 8, 22 4, 32 18 C42 30, 50 10, 62 16 C72 22, 80 8, 92 14 C102 20, 110 10, 118 16"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      opacity="0.6"
-                    />
-                  </svg>
-                  <span className="text-white text-sm font-medium leading-tight">Qmanda Lee</span>
-                  <span className="text-[#e8435a] text-xs font-normal leading-tight">CTO, Edigitaal Solutions</span>
-                </div>
-              </div>
+          <div className="flex justify-end">
+            <div className="flex items-center gap-3">
+              <a
+                href="#"
+                className="px-7 py-3 rounded-full text-white text-sm font-medium tracking-wider uppercase hover:opacity-90 transition-opacity"
+                style={{ background: '#e8435a', letterSpacing: '0.06em' }}
+              >
+                Book a Free Consultation
+              </a>
+              <a
+                href="#"
+                aria-label="Next"
+                className="w-10 h-10 rounded-full flex items-center justify-center border border-white/25 hover:border-white/50 transition-colors"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
             </div>
-
-            {/* Right: 130+ stat + CTA */}
-            <div className="flex flex-col items-start md:items-end gap-4">
-              <div className="flex items-center gap-4">
-                <span
-                  className="font-black text-white"
-                  style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 1 }}
-                >
-                  130+
-                </span>
-                <span className="text-white/50 text-sm font-normal leading-snug">
-                  Expanding Impact in<br />25 Countries
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <a
-                  href="#"
-                  className="px-7 py-3 rounded-full text-white text-sm font-medium tracking-wider uppercase hover:opacity-90 transition-opacity"
-                  style={{ background: '#e8435a', letterSpacing: '0.06em' }}
-                >
-                  Book a Free Consultation
-                </a>
-                <a
-                  href="#"
-                  aria-label="Next"
-                  className="w-10 h-10 rounded-full flex items-center justify-center border border-white/25 hover:border-white/50 transition-colors"
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

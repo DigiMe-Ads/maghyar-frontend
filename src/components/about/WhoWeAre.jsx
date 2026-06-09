@@ -96,11 +96,11 @@ export default function WhoWeAre() {
             style={{ fontSize: 'clamp(1.7rem, 3.8vw, 3rem)' }}
           >
             <span className="text-white font-black">Building Digital</span>
-            <span className="font-normal text-white/70"> Products </span>
+            <span className="font-black text-white"> Products </span>
             <span className="text-white font-black">That</span>
             <br />
             <span className="text-[#e8435a] italic font-bold">Scale </span>
-            <span className="italic font-normal" style={{ color: 'rgba(232,67,90,0.18)' }}>& Perform</span>
+            <span className="italic font-bold" style={{ color: '#e8435a' }}>& Perform</span>
           </h2>
 
           {/* Description */}

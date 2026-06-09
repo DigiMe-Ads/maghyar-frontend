@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import featuresImg from '../../assets/about/features.png';
 
 const features = [
-  { title: 'Corporate Websites',          tags: ['Business Solutions', 'Web Presence'],     active: true },
+  { title: 'Corporate Websites',          tags: ['Business Solutions', 'Web Presence'] },
   { title: 'Landing & Campaign Pages',    tags: ['Lead Generation',   'Conversions'] },
   { title: 'E-commerce Platforms',        tags: ['Online Store',      'Payment Integration'] },
   { title: 'Custom Web Applications',     tags: ['Tailored Solutions','Scalable Build'] },
 ];
 
 export default function FeaturesSection() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   return (
     <section
       className="relative w-full bg-[#0a0a0a] py-16 px-5 md:px-10 lg:px-16 overflow-hidden"
@@ -26,8 +29,8 @@ export default function FeaturesSection() {
               className="text-white leading-tight"
               style={{ fontSize: 'clamp(1.6rem, 3.2vw, 2.6rem)' }}
             >
-              Our Exciting And{' '}
-              <span className="font-black">Powerful</span>
+              What We Build{' '}
+              <span className="font-black">For Your Business</span>
             </h2>
           </div>
 
@@ -63,21 +66,30 @@ export default function FeaturesSection() {
 
           {/* Feature list */}
           <div>
-            {features.map((feature) => (
-              <div key={feature.title}>
+            {features.map((feature, idx) => (
+              <div
+                key={feature.title}
+                onClick={() => setActiveIdx(idx)}
+                className="cursor-pointer"
+              >
                 <div style={{ height: 1, background: 'rgba(255,255,255,0.08)' }} />
                 <div
-                  className="flex items-center py-7"
+                  className="flex items-center py-7 transition-all duration-200"
                   style={
-                    feature.active
+                    idx === activeIdx
                       ? { borderLeft: '2px solid #e8435a', paddingLeft: 16 }
                       : { paddingLeft: 18 }
                   }
                 >
                   {/* Title */}
                   <span
-                    className="text-white font-semibold flex-shrink-0"
-                    style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', minWidth: 170 }}
+                    className="flex-shrink-0 transition-colors duration-200"
+                    style={{
+                      fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)',
+                      minWidth: 170,
+                      fontWeight: idx === activeIdx ? 700 : 600,
+                      color: idx === activeIdx ? '#ffffff' : 'rgba(255,255,255,0.75)',
+                    }}
                   >
                     {feature.title}
                   </span>
