@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import footerShape from '../../assets/footer-shape.png';
-
-const companyLinks = ['About', 'Our Mission', 'Our Blogs', 'Help Center', 'Contact Us'];
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
+  const { lang } = useLanguage();
+  const t = translations[lang].footer;
 
   return (
     <footer
@@ -24,20 +26,17 @@ export default function Footer() {
               className="text-white font-normal leading-snug mb-6"
               style={{ fontSize: 'clamp(1.1rem, 2vw, 1.45rem)', maxWidth: 360 }}
             >
-              We help businesses transform ideas into{' '}
-              <span className="font-semibold" style={{ color: '#e8435a' }}>powerful digital solutions.</span>
+              {t.tagline}{' '}
+              <span className="font-semibold" style={{ color: '#e8435a' }}>{t.taglineEmphasis}</span>
             </h3>
 
             {/* Email input */}
-            <div
-              className="relative flex items-center mb-6"
-              style={{ maxWidth: 380 }}
-            >
+            <div className="relative flex items-center mb-6" style={{ maxWidth: 380 }}>
               <input
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                placeholder="Your Email address"
+                placeholder={t.emailPlaceholder}
                 className="w-full text-sm outline-none"
                 style={{
                   background: 'rgba(255,255,255,0.05)',
@@ -88,9 +87,9 @@ export default function Footer() {
 
             {/* Company */}
             <div className="flex-1">
-              <h4 className="text-white font-semibold text-sm mb-5">Company</h4>
+              <h4 className="text-white font-semibold text-sm mb-5">{t.companyTitle}</h4>
               <ul className="flex flex-col gap-3">
-                {companyLinks.map(link => (
+                {t.companyLinks.map(link => (
                   <li key={link}>
                     <a
                       href="#"
@@ -106,18 +105,10 @@ export default function Footer() {
 
             {/* Contact */}
             <div className="flex-1">
-              <h4 className="text-white font-semibold text-sm mb-5">Contact</h4>
+              <h4 className="text-white font-semibold text-sm mb-5">{t.contactTitle}</h4>
               <ul className="flex flex-col gap-3">
-                {[
-                  '+36 30 655 7566',
-                  'sales@magyardigital.com',
-                  'Budapest, Hungary',
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-sm leading-snug"
-                    style={{ color: 'rgba(255,255,255,0.45)', maxWidth: 200 }}
-                  >
+                {['+36 30 655 7566', 'sales@magyardigital.com', 'Budapest, Hungary'].map((item, i) => (
+                  <li key={i} className="text-sm leading-snug" style={{ color: 'rgba(255,255,255,0.45)', maxWidth: 200 }}>
                     {item}
                   </li>
                 ))}
@@ -132,10 +123,10 @@ export default function Footer() {
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            © {new Date().getFullYear()} Magyar Digital. All rights reserved.
+            © {new Date().getFullYear()} Magyar Digital. {t.copyright}
           </p>
           <div className="flex items-center gap-5">
-            {['Privacy Policy', 'Terms of Service'].map(item => (
+            {[t.privacyPolicy, t.termsOfService].map(item => (
               <a
                 key={item}
                 href="#"

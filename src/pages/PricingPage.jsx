@@ -4,7 +4,7 @@ import PricingCards from '../components/pricing/PricingCards';
 export default function PricingPage() {
   return (
     <main>
-      <PageHero title="Pricing" />
+      <PageHero titleKey="pricing" />
       <PricingCards />
     </main>
   );

@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import heroBg from '../../assets/hero-bg.png';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
-export default function PageHero({ title }) {
+export default function PageHero({ titleKey }) {
+  const { lang } = useLanguage();
+  const t = translations[lang].pageHero;
+  const title = t[titleKey] || titleKey;
+
   return (
     <section
       className="relative w-full flex items-center justify-center"
@@ -32,7 +38,7 @@ export default function PageHero({ title }) {
         {/* Breadcrumb */}
         <div className="flex items-center justify-center gap-2" style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem' }}>
           <Link to="/" className="hover:text-white transition-colors duration-200">
-            Home
+            {t.home}
           </Link>
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6" />

@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import featuresImg from '../../assets/about/features.png';
-
-const features = [
-  { title: 'Corporate Websites',          tags: ['Business Solutions', 'Web Presence'] },
-  { title: 'Landing & Campaign Pages',    tags: ['Lead Generation',   'Conversions'] },
-  { title: 'E-commerce Platforms',        tags: ['Online Store',      'Payment Integration'] },
-  { title: 'Custom Web Applications',     tags: ['Tailored Solutions','Scalable Build'] },
-];
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 export default function FeaturesSection() {
   const [activeIdx, setActiveIdx] = useState(0);
+  const { lang } = useLanguage();
+  const t = translations[lang].featuresSection;
 
   return (
     <section
@@ -20,21 +17,19 @@ export default function FeaturesSection() {
 
         {/* ── Left column: header + image ── */}
         <div className="lg:w-1/2 flex-shrink-0 flex flex-col gap-8">
-          {/* Header */}
           <div>
             <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-3">
-              + Features
+              {t.label}
             </p>
             <h2
               className="text-white leading-tight"
               style={{ fontSize: 'clamp(1.6rem, 3.2vw, 2.6rem)' }}
             >
-              What We Build{' '}
-              <span className="font-black">For Your Business</span>
+              {t.headline1}{' '}
+              <span className="font-black">{t.headline2}</span>
             </h2>
           </div>
 
-          {/* Image */}
           <img
             src={featuresImg}
             alt="Our features"
@@ -45,7 +40,7 @@ export default function FeaturesSection() {
 
         {/* ── Right column: FEATURES watermark + list ── */}
         <div className="flex-1 flex flex-col">
-          {/* FEATURES watermark — sits at the top, parallel to the heading */}
+          {/* Watermark */}
           <div
             className="hidden sm:flex pointer-events-none select-none overflow-hidden items-center mb-8"
             style={{ minHeight: 'clamp(2.5rem, 6vw, 5rem)' }}
@@ -66,7 +61,7 @@ export default function FeaturesSection() {
 
           {/* Feature list */}
           <div>
-            {features.map((feature, idx) => (
+            {t.features.map((feature, idx) => (
               <div
                 key={feature.title}
                 onClick={() => setActiveIdx(idx)}

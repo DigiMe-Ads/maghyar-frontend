@@ -1,15 +1,13 @@
 import { useState } from 'react';
-
-const offerings = [
-  'Social Media Management',
-  'Creative Designing',
-  'Google Ads',
-  'SEO Optimization',
-];
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 function ContactModal({ onClose }) {
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
+  const { lang } = useLanguage();
+  const t = translations[lang].contactCta.modal;
+  const offerings = translations[lang].contactCta.offerings;
 
   function handleChange(e) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -21,13 +19,11 @@ function ContactModal({ onClose }) {
   }
 
   return (
-    /* Backdrop */
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)' }}
       onClick={onClose}
     >
-      {/* Dialog */}
       <div
         className="relative w-full max-w-lg rounded-3xl p-7 sm:p-9"
         style={{ background: '#111', border: '1px solid rgba(255,255,255,0.08)' }}
@@ -53,24 +49,24 @@ function ContactModal({ onClose }) {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <p className="text-white font-semibold text-lg">Message Sent!</p>
-            <p className="text-white/40 text-sm">We'll be in touch with you shortly.</p>
+            <p className="text-white font-semibold text-lg">{t.successTitle}</p>
+            <p className="text-white/40 text-sm">{t.successBody}</p>
             <button
               onClick={onClose}
               className="mt-2 px-6 py-2.5 rounded-full text-white text-xs font-semibold tracking-wider uppercase transition-opacity hover:opacity-80"
               style={{ background: '#e8435a' }}
             >
-              Close
+              {t.close}
             </button>
           </div>
         ) : (
           <>
             <p className="text-[#e01b45] text-[10px] font-semibold tracking-widest uppercase mb-2">
-              + Get In Touch
+              {t.label}
             </p>
             <h3 className="text-white font-bold text-xl sm:text-2xl leading-snug mb-6">
-              Let's talk about<br />
-              <span className="text-white/30 font-normal">your project</span>
+              {t.headline1}<br />
+              <span className="text-white/30 font-normal">{t.headline2}</span>
             </h3>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -78,7 +74,7 @@ function ContactModal({ onClose }) {
                 <input
                   name="name"
                   type="text"
-                  placeholder="Your name"
+                  placeholder={t.namePlaceholder}
                   required
                   value={form.name}
                   onChange={handleChange}
@@ -88,7 +84,7 @@ function ContactModal({ onClose }) {
                 <input
                   name="email"
                   type="email"
-                  placeholder="Email address"
+                  placeholder={t.emailPlaceholder}
                   required
                   value={form.email}
                   onChange={handleChange}
@@ -108,15 +104,15 @@ function ContactModal({ onClose }) {
                   color: form.service ? 'white' : 'rgba(255,255,255,0.3)',
                 }}
               >
-                <option value="" disabled>Select a service</option>
+                <option value="" disabled>{t.serviceLabel}</option>
                 {offerings.map((o) => (
-                  <option key={o} value={o} style={{ background: '#1a1a1a', color: 'white' }}>{o}</option>
+                  <option key={o.value} value={o.value} style={{ background: '#1a1a1a', color: 'white' }}>{o.label}</option>
                 ))}
               </select>
 
               <textarea
                 name="message"
-                placeholder="Tell us about your project..."
+                placeholder={t.messagePlaceholder}
                 required
                 rows={4}
                 value={form.message}
@@ -130,7 +126,7 @@ function ContactModal({ onClose }) {
                 className="w-full py-3 rounded-full text-white text-sm font-semibold tracking-wider uppercase transition-opacity hover:opacity-85"
                 style={{ background: '#e8435a' }}
               >
-                Send Message
+                {t.submit}
               </button>
             </form>
           </>
@@ -142,6 +138,8 @@ function ContactModal({ onClose }) {
 
 export default function ContactCta() {
   const [open, setOpen] = useState(false);
+  const { lang } = useLanguage();
+  const t = translations[lang].contactCta;
 
   return (
     <>
@@ -152,27 +150,26 @@ export default function ContactCta() {
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
 
           <p className="text-[#e01b45] text-[10px] sm:text-xs font-semibold tracking-widest uppercase">
-            + What We Offer
+            {t.label}
           </p>
 
           <h2
             className="text-white font-bold leading-tight"
             style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}
           >
-            Everything you need to{' '}
-            <span className="text-[#e8435a] italic">grow online</span>
+            {t.headline1}{' '}
+            <span className="text-[#e8435a] italic">{t.headline2}</span>
           </h2>
 
           <p className="text-white/40 text-sm font-normal leading-relaxed max-w-lg">
-            From managing your social presence to running high-converting ad campaigns,
-            we handle every aspect of your digital growth.
+            {t.body}
           </p>
 
           {/* Service pills */}
           <div className="flex flex-wrap justify-center gap-3 mt-1">
-            {offerings.map((item) => (
+            {t.offerings.map((item) => (
               <span
-                key={item}
+                key={item.value}
                 className="px-5 py-2 rounded-full text-sm font-medium"
                 style={{
                   background: 'rgba(255,255,255,0.05)',
@@ -180,7 +177,7 @@ export default function ContactCta() {
                   color: 'rgba(255,255,255,0.75)',
                 }}
               >
-                {item}
+                {item.label}
               </span>
             ))}
           </div>
@@ -192,7 +189,7 @@ export default function ContactCta() {
               className="px-7 py-3 rounded-full text-white text-sm font-semibold tracking-wider uppercase transition-opacity hover:opacity-85"
               style={{ background: '#e8435a' }}
             >
-              Contact Us
+              {t.cta}
             </button>
             <button
               onClick={() => setOpen(true)}

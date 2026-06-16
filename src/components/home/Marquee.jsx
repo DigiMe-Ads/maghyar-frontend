@@ -1,7 +1,11 @@
-const ITEM = 'DIGITAL AGENCY';
-const track = Array(8).fill(ITEM);
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 export default function Marquee() {
+  const { lang } = useLanguage();
+  const text = translations[lang].marquee.text;
+  const track = Array(8).fill(text);
+
   return (
     <div
       className="relative w-full overflow-hidden"
@@ -38,12 +42,7 @@ export default function Marquee() {
             {/* Red dot separator */}
             <span
               className="flex-shrink-0 rounded-full"
-              style={{
-                width: 10,
-                height: 10,
-                background: '#e8435a',
-                marginInline: 4,
-              }}
+              style={{ width: 10, height: 10, background: '#e8435a', marginInline: 4 }}
             />
           </span>
         ))}

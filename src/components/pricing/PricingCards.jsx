@@ -1,63 +1,13 @@
 import { useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 const ACCESS_KEY = 'd641238d-0554-48c5-8250-97c79c7a9446';
 
-const plans = [
-  {
-    name: 'Starter Website',
-    priceFrom: '350,000',
-    priceTo: '450,000',
-    features: [
-      'Up to 6 fully responsive pages',
-      'React SPA (Single-Page Application)',
-      'Component-based architecture',
-      'Mobile-first responsive design',
-      'Basic SEO meta tags & Open Graph',
-      'Contact form with Web3Forms',
-      'Performance-optimised build (Vite)',
-      'Git repository + deployment-ready',
-      '3 rounds of design revisions',
-      '30-day post-launch bug support',
-      'Basic Lighthouse performance audit',
-    ],
-  },
-  {
-    name: 'Business Website',
-    priceFrom: '500,000',
-    priceTo: '750,000',
-    recommended: true,
-    features: [
-      'Up to 8 fully responsive pages',
-      'React SPA / Multi-page application',
-      'Custom component architecture',
-      'Mobile-first responsive design',
-      'Advanced SEO & Open Graph tags',
-      'Contact form + custom integrations',
-      'Performance-optimised build (Vite)',
-      'Git repository + deployment-ready',
-      '3 rounds of design revisions',
-      '60-day post-launch bug support',
-      'Full Lighthouse performance audit',
-    ],
-  },
-  {
-    name: 'Custom Web / eCommerce',
-    priceFrom: '750,000',
-    priceTo: null,
-    features: [
-      '12 pages & custom features',
-      'React / Next.js application',
-      'eCommerce & payment integration',
-      'Mobile-first responsive design',
-      'Full SEO & Open Graph integration',
-      'Custom forms & API integrations',
-      'Performance-optimised build (Vite)',
-      'Git repository + deployment-ready',
-      'Unlimited design revisions',
-      '90-day post-launch bug support',
-      'Lighthouse audit + optimisation',
-    ],
-  },
+const planPrices = [
+  { priceFrom: '350,000', priceTo: '450,000', recommended: false },
+  { priceFrom: '500,000', priceTo: '750,000', recommended: true },
+  { priceFrom: '750,000', priceTo: null,      recommended: false },
 ];
 
 const inputStyle = {
@@ -78,9 +28,14 @@ const CheckIcon = () => (
   </svg>
 );
 
-function QuoteDialog({ plan, onClose }) {
+function QuoteDialog({ planIndex, planNameEn, onClose }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [status, setStatus] = useState('idle');
+  const { lang } = useLanguage();
+  const t = translations[lang].pricing;
+  const td = t.dialog;
+  const plan = t.plans[planIndex];
+  const prices = planPrices[planIndex];
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -94,10 +49,10 @@ function QuoteDialog({ plan, onClose }) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
-          subject: `Quote Request — ${plan.name} — Magyar Digital`,
+          subject: `Quote Request — ${planNameEn} — Magyar Digital`,
           name: form.name,
           email: form.email,
-          message: `Plan: ${plan.name}\nPrice range: HUF ${plan.priceFrom}${plan.priceTo ? ` – ${plan.priceTo}` : '+'}\nPhone: ${form.phone || 'N/A'}\n\n${form.message || 'No additional message.'}`,
+          message: `Plan: ${planNameEn}\nPrice range: HUF ${prices.priceFrom}${prices.priceTo ? ` – ${prices.priceTo}` : '+'}\nPhone: ${form.phone || 'N/A'}\n\n${form.message || 'No additional message.'}`,
         }),
       });
       const data = await res.json();
@@ -130,73 +85,45 @@ function QuoteDialog({ plan, onClose }) {
 
         {/* Header */}
         <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-2 flex items-center gap-1">
-          <span>+</span> GET A QUOTE
+          <span>+</span> {td.label.replace('+ ', '')}
         </p>
         <h3 className="text-white font-bold mb-1" style={{ fontSize: '1.25rem' }}>
           {plan.name}
         </h3>
         <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', marginBottom: '1.75rem' }}>
-          HUF {plan.priceFrom}{plan.priceTo ? ` – ${plan.priceTo}` : '+'} · one-time project fee
+          HUF {prices.priceFrom}{prices.priceTo ? ` – ${prices.priceTo}` : '+'} · {td.feeLabel}
         </p>
 
         {status === 'success' ? (
           <div className="text-center py-8">
-            <p className="text-white font-semibold mb-2">Request sent!</p>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.83rem' }}>
-              We'll get back to you shortly with a tailored quote.
-            </p>
+            <p className="text-white font-semibold mb-2">{td.successTitle}</p>
+            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.83rem' }}>{td.successBody}</p>
             <button
               onClick={onClose}
               className="mt-6 px-8 py-3 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity"
               style={{ background: '#e8435a' }}
             >
-              Close
+              {td.close}
             </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            <style>{`
-              .quote-input::placeholder { color: rgba(255,255,255,0.25); }
-            `}</style>
+            <style>{`.quote-input::placeholder { color: rgba(255,255,255,0.25); }`}</style>
 
-            <input
-              className="quote-input"
-              style={inputStyle}
-              placeholder="Your full name *"
-              value={form.name}
-              onChange={set('name')}
-              required
-            />
-            <input
-              className="quote-input"
-              style={inputStyle}
-              type="email"
-              placeholder="Email address *"
-              value={form.email}
-              onChange={set('email')}
-              required
-            />
-            <input
-              className="quote-input"
-              style={inputStyle}
-              type="tel"
-              placeholder="Phone number"
-              value={form.phone}
-              onChange={set('phone')}
-            />
+            <input className="quote-input" style={inputStyle} placeholder={td.namePlaceholder}    value={form.name}    onChange={set('name')}    required />
+            <input className="quote-input" style={inputStyle} type="email" placeholder={td.emailPlaceholder}   value={form.email}   onChange={set('email')}   required />
+            <input className="quote-input" style={inputStyle} type="tel"   placeholder={td.phonePlaceholder}   value={form.phone}   onChange={set('phone')} />
             <textarea
               className="quote-input"
               style={{ ...inputStyle, resize: 'none', minHeight: 80, borderBottom: '1px solid rgba(255,255,255,0.15)' }}
-              placeholder="Tell us about your project (optional)"
+              placeholder={td.messagePlaceholder}
               value={form.message}
               onChange={set('message')}
               rows={3}
             />
 
             {status === 'error' && (
-              <p style={{ color: '#e8435a', fontSize: '0.78rem' }}>
-                Something went wrong. Please try again.
-              </p>
+              <p style={{ color: '#e8435a', fontSize: '0.78rem' }}>{td.error}</p>
             )}
 
             <button
@@ -205,7 +132,7 @@ function QuoteDialog({ plan, onClose }) {
               className="w-full py-3.5 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ background: '#e8435a', letterSpacing: '0.1em' }}
             >
-              {status === 'loading' ? 'Sending…' : 'Send Quote Request'}
+              {status === 'loading' ? td.sending : td.submit}
             </button>
           </form>
         )}
@@ -214,32 +141,31 @@ function QuoteDialog({ plan, onClose }) {
   );
 }
 
-function PriceDisplay({ from, to }) {
+function PriceDisplay({ from, to, feeLabel }) {
   return (
     <div className="mb-5">
       <div className="flex items-baseline gap-1 flex-wrap">
         <span className="text-white" style={{ fontSize: '0.85rem', alignSelf: 'flex-start', marginTop: 8, opacity: 0.6 }}>
           HUF
         </span>
-        <span
-          className="text-white font-black leading-none"
-          style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)' }}
-        >
-          {from}
-          {to ? ` – ${to}` : '+'}
+        <span className="text-white font-black leading-none" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)' }}>
+          {from}{to ? ` – ${to}` : '+'}
         </span>
       </div>
-      <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}>
-        one-time project fee
-      </span>
+      <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}>{feeLabel}</span>
     </div>
   );
 }
 
-function PricingCard({ plan, onQuote }) {
+function PricingCard({ planIndex, planNameEn, onQuote }) {
+  const { lang } = useLanguage();
+  const t = translations[lang].pricing;
+  const plan = t.plans[planIndex];
+  const prices = planPrices[planIndex];
+
   return (
     <div className="relative">
-      {plan.recommended && (
+      {prices.recommended && (
         <div
           style={{
             background: 'linear-gradient(135deg, #e8435a 0%, #c0304a 100%)',
@@ -254,7 +180,7 @@ function PricingCard({ plan, onQuote }) {
             zIndex: 0,
           }}
         >
-          Recommended
+          {t.recommended}
         </div>
       )}
 
@@ -263,12 +189,12 @@ function PricingCard({ plan, onQuote }) {
         style={{
           background: '#161616',
           borderRadius: '20px',
-          marginTop: plan.recommended ? -20 : 0,
+          marginTop: prices.recommended ? -20 : 0,
           position: 'relative',
           zIndex: 1,
         }}
       >
-        <PriceDisplay from={plan.priceFrom} to={plan.priceTo} />
+        <PriceDisplay from={prices.priceFrom} to={prices.priceTo} feeLabel={t.oneTimeFee} />
 
         <div
           className="rounded-xl flex items-center justify-center mb-5"
@@ -292,19 +218,21 @@ function PricingCard({ plan, onQuote }) {
 
         <button
           type="button"
-          onClick={() => onQuote(plan)}
+          onClick={() => onQuote(planIndex)}
           className="w-full py-3.5 rounded-full text-white text-sm font-normal tracking-wide hover:opacity-85 transition-opacity"
           style={{ background: '#1e1e1e' }}
         >
-          Get a Quote
+          {t.getQuote}
         </button>
       </div>
     </div>
   );
 }
 
+const EN_PLAN_NAMES = ['Starter Website', 'Business Website', 'Custom Web / eCommerce'];
+
 export default function PricingCards() {
-  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   return (
     <section
@@ -315,13 +243,17 @@ export default function PricingCards() {
         className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto"
         style={{ alignItems: 'end', paddingTop: 56 }}
       >
-        {plans.map((plan, i) => (
-          <PricingCard key={i} plan={plan} onQuote={setSelectedPlan} />
+        {planPrices.map((_, i) => (
+          <PricingCard key={i} planIndex={i} planNameEn={EN_PLAN_NAMES[i]} onQuote={setSelectedIndex} />
         ))}
       </div>
 
-      {selectedPlan && (
-        <QuoteDialog plan={selectedPlan} onClose={() => setSelectedPlan(null)} />
+      {selectedIndex !== null && (
+        <QuoteDialog
+          planIndex={selectedIndex}
+          planNameEn={EN_PLAN_NAMES[selectedIndex]}
+          onClose={() => setSelectedIndex(null)}
+        />
       )}
     </section>
   );

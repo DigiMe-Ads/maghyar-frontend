@@ -1,51 +1,20 @@
-// src/components/home/Services.jsx
 import { useState } from 'react';
-import servicesTeam   from '../../assets/services-team.jpg';
-
-const services = [
-  {
-    id: '01',
-    label: 'Fully Responsive',
-    description: 'Every site we build starts from mobile and scales up — ensuring a seamless, consistent experience across all screen sizes, from smartphones to large desktops.',
-    solutions: ['Fluid grid layouts', 'Touch-friendly interfaces', 'Cross-device testing', 'Adaptive breakpoints'],
-  },
-  {
-    id: '02',
-    label: 'SEO-Optimized Structure',
-    description: 'We build with search engines in mind from day one — clean semantic markup, structured data, and a site architecture that makes it easy for Google to crawl and rank your content.',
-    solutions: ['Semantic HTML5 markup', 'Meta & schema setup', 'Sitemap & robots.txt', 'Core Web Vitals focus'],
-  },
-  {
-    id: '03',
-    label: 'Fast Loading Performance',
-    description: 'Speed is a feature. We optimize every layer — from compressed assets and lazy loading to CDN integration — so your site loads fast and keeps users engaged.',
-    solutions: ['Image & asset optimization', 'Code splitting & minification', 'CDN integration', 'Lighthouse score tuning'],
-  },
-  {
-    id: '04',
-    label: 'GDPR-Compliant',
-    description: 'Data privacy is built into every project, not bolted on. We implement cookie consent, secure data handling, and privacy-first practices that keep your site compliant from launch.',
-    solutions: ['Cookie consent management', 'Privacy policy integration', 'Secure data handling', 'GDPR audit & compliance'],
-  },
-];
-
-const stats = [
-  { value: '100+',  label: 'Projects Completed' },
-  { value: '250+', label: 'Clients Served' },
-];
+import servicesTeam from '../../assets/services-team.jpg';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 export default function Services() {
   const [active, setActive] = useState(0);
-  const current = services[active];
+  const { lang } = useLanguage();
+  const t = translations[lang].services;
+  const current = t.items[active];
 
   return (
     <section
       className="relative w-full bg-[#0a0a0a]"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
-      {/* ════════════════════════════════════════
-          CARD 1 — dark services card
-      ════════════════════════════════════════ */}
+      {/* CARD 1 — dark services card */}
       <div
         className="relative z-10 mx-3 sm:mx-6 md:mx-8 lg:mx-12 rounded-3xl bg-[#111] py-10 sm:py-14 px-5 sm:px-8 md:px-12"
         style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.7)' }}
@@ -53,14 +22,14 @@ export default function Services() {
         {/* Section label + heading */}
         <div className="text-center mb-8 sm:mb-12">
           <p className="text-[#e01b45] text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-3 sm:mb-4">
-            + Our Services
+            {t.label}
           </p>
           <h2
             className="font-bold text-white leading-tight"
             style={{ fontSize: 'clamp(1.5rem, 3.8vw, 2.8rem)' }}
           >
-            Helping You Succeed Through{' '}
-            <span className="text-white/20 font-normal italic">Digital Excellence</span>
+            {t.headline1}{' '}
+            <span className="text-white/20 font-normal italic">{t.headline2}</span>
           </h2>
         </div>
 
@@ -69,7 +38,7 @@ export default function Services() {
 
           {/* Left: service list */}
           <div className="flex flex-col gap-2 sm:gap-3 w-full lg:w-72 xl:w-80 flex-shrink-0">
-            {services.map((svc, i) => {
+            {t.items.map((svc, i) => {
               const isActive = active === i;
               return (
                 <button
@@ -148,16 +117,10 @@ export default function Services() {
         </div>
       </div>
 
-      {/* ════════════════════════════════════════
-          CARD 2 — red stats card (stacked beneath)
-      ════════════════════════════════════════ */}
+      {/* CARD 2 — red stats card */}
       <div
         className="relative z-0 mx-3 sm:mx-6 md:mx-8 lg:mx-12 rounded-3xl overflow-hidden"
-        style={{
-          background: '#e8435a',
-          marginTop: '-2rem',
-          paddingTop: '4rem',
-        }}
+        style={{ background: '#e8435a', marginTop: '-2rem', paddingTop: '4rem' }}
       >
         {/* X pattern overlay */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -180,14 +143,14 @@ export default function Services() {
               className="text-white font-bold leading-snug"
               style={{ fontSize: 'clamp(0.95rem, 2vw, 1.4rem)' }}
             >
-              Ready to Build Your Digital Presence Across Europe?
+              {t.ctaHeadline}
             </h3>
             <div className="flex items-center gap-3">
               <a
                 href="#"
                 className="px-5 py-2 rounded-full bg-black text-white text-[11px] font-semibold tracking-wider uppercase hover:bg-white hover:text-black transition-colors"
               >
-                Get In Touch
+                {t.getInTouch}
               </a>
               <a
                 href="#"
@@ -204,7 +167,7 @@ export default function Services() {
 
           {/* Stats */}
           <div className="flex items-center w-full sm:w-auto divide-x divide-white/20">
-            {stats.map((s) => (
+            {t.stats.map((s) => (
               <div
                 key={s.value}
                 className="flex flex-col items-center flex-1 sm:flex-initial px-6 sm:px-10 md:px-14 first:pl-0 sm:first:pl-10"

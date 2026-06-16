@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
-
 import heroBg   from '../../assets/hero-bg.png';
 import flower3d from '../../assets/3d-flower.png';
 import cubes3d  from '../../assets/3d-cubes.png';
 import photo1   from '../../assets/photo-1.jpg';
 import photo2   from '../../assets/photo-2.jpg';
-import avatar   from '../../assets/avatar.jpg';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 function useParallax(ref, strength = 0.015) {
   useEffect(() => {
@@ -26,6 +26,8 @@ function useParallax(ref, strength = 0.015) {
 export default function Hero() {
   const p1Ref = useRef(null);
   const p2Ref = useRef(null);
+  const { lang } = useLanguage();
+  const t = translations[lang].hero;
 
   useParallax(p1Ref, 0.018);
   useParallax(p2Ref, 0.014);
@@ -140,7 +142,7 @@ export default function Hero() {
                 className="px-7 py-3 rounded-full text-white text-sm font-medium tracking-wider uppercase hover:opacity-90 transition-opacity"
                 style={{ background: '#e8435a', letterSpacing: '0.06em' }}
               >
-                Book a Free Consultation
+                {t.bookConsultation}
               </a>
               <a
                 href="#"

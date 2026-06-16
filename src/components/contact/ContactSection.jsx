@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import featuresWire from '../../assets/features-wire.png';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
+
+const ACCESS_KEY = 'd641238d-0554-48c5-8250-97c79c7a9446';
 
 const inputStyle = {
   background: 'transparent',
@@ -17,13 +21,11 @@ const placeholderColor = `
   input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
 `;
 
-const ACCESS_KEY = 'd641238d-0554-48c5-8250-97c79c7a9446';
-
 export default function ContactSection() {
-  const [form, setForm] = useState({
-    name: '', email: '', phone: '', needs: '', subject: '',
-  });
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [form, setForm] = useState({ name: '', email: '', phone: '', needs: '', subject: '' });
+  const [status, setStatus] = useState('idle');
+  const { lang } = useLanguage();
+  const t = translations[lang].contact;
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -77,35 +79,29 @@ export default function ContactSection() {
               alt=""
               aria-hidden="true"
               className="pointer-events-none select-none absolute"
-              style={{
-                width: '140%',
-                left: '-30%',
-                top: '10%',
-                opacity: 0.04,
-                filter: 'grayscale(1)',
-              }}
+              style={{ width: '140%', left: '-30%', top: '10%', opacity: 0.04, filter: 'grayscale(1)' }}
             />
 
             {/* Top: label + heading */}
             <div className="relative z-10">
               <p className="text-[#e01b45] text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-1">
-                <span>+</span> GET IN TOUCH
+                <span>+</span> {t.label.replace('+ ', '')}
               </p>
               <h2
                 className="text-white font-bold leading-snug"
                 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)' }}
               >
-                We help businesses
-                <br />
-                transform ideas into{' '}
+                {t.headline.split('\n').map((line, i) => (
+                  <span key={i}>{line}{i < t.headline.split('\n').length - 1 && <br />}</span>
+                ))}{' '}
                 <span style={{ color: '#e8435a', fontStyle: 'italic', fontWeight: 700 }}>
-                  powerful digital
-                  <br />
-                  solutions
+                  {t.headlineEmphasis.split('\n').map((line, i, arr) => (
+                    <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+                  ))}
                 </span>
               </h2>
               <p className="mt-4 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                Let's discuss your project today.
+                {t.subheading}
               </p>
             </div>
 
@@ -115,10 +111,7 @@ export default function ContactSection() {
                 sales@magyardigital.com
               </p>
               <div className="flex items-center gap-3">
-                <p
-                  className="text-white font-normal"
-                  style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}
-                >
+                <p className="text-white font-normal" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
                   +36 30 655 7566
                 </p>
                 <a
@@ -141,40 +134,17 @@ export default function ContactSection() {
           {/* ── Right: form ── */}
           <div className="flex-1 flex flex-col justify-between gap-8">
 
-            {/* 2 × 2 grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7">
-              <input
-                style={inputStyle}
-                placeholder="Your full name"
-                value={form.name}
-                onChange={set('name')}
-              />
-              <input
-                style={inputStyle}
-                type="email"
-                placeholder="Your email Address"
-                value={form.email}
-                onChange={set('email')}
-              />
-              <input
-                style={inputStyle}
-                type="tel"
-                placeholder="Phone number"
-                value={form.phone}
-                onChange={set('phone')}
-              />
-              <input
-                style={inputStyle}
-                placeholder="What are your needs"
-                value={form.needs}
-                onChange={set('needs')}
-              />
+              <input style={inputStyle} placeholder={t.namePlaceholder}    value={form.name}    onChange={set('name')} />
+              <input style={inputStyle} type="email" placeholder={t.emailPlaceholder}   value={form.email}   onChange={set('email')} />
+              <input style={inputStyle} type="tel"   placeholder={t.phonePlaceholder}   value={form.phone}   onChange={set('phone')} />
+              <input style={inputStyle} placeholder={t.needsPlaceholder}   value={form.needs}   onChange={set('needs')} />
             </div>
 
-            {/* Subject — full width */}
+            {/* Subject */}
             <input
               style={inputStyle}
-              placeholder="your-subject"
+              placeholder={t.subjectPlaceholder}
               value={form.subject}
               onChange={set('subject')}
             />
@@ -183,12 +153,12 @@ export default function ContactSection() {
             <div>
               {status === 'success' && (
                 <p className="mb-4 text-xs font-semibold" style={{ color: '#4ade80' }}>
-                  Message sent! We'll be in touch shortly.
+                  {t.success}
                 </p>
               )}
               {status === 'error' && (
                 <p className="mb-4 text-xs font-semibold" style={{ color: '#e8435a' }}>
-                  Something went wrong. Please try again.
+                  {t.error}
                 </p>
               )}
               <div className="flex flex-wrap gap-3">
@@ -199,7 +169,7 @@ export default function ContactSection() {
                   className="px-8 py-3.5 rounded-full text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ background: '#e8435a', letterSpacing: '0.1em' }}
                 >
-                  {status === 'loading' ? 'Sending…' : 'Book a Free Consultation'}
+                  {status === 'loading' ? t.sending : t.bookConsultation}
                 </button>
                 <button
                   type="button"
@@ -208,7 +178,7 @@ export default function ContactSection() {
                   className="px-8 py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}
                 >
-                  Request a Proposal
+                  {t.requestProposal}
                 </button>
               </div>
             </div>
