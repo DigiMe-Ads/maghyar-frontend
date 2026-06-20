@@ -23,7 +23,7 @@ const projectBase = [
   {
     id: 3,
     tags: ['WordPress', 'SEO', 'Performance'],
-    title: 'Molecules',
+    title: 'Molecule',
     video: moleculesVideo,
     tech: ['WordPress', 'SEO Optimisation', 'Performance Tuning'],
   },

@@ -270,6 +270,13 @@ export const translations = {
       error: 'Something went wrong. Please try again.',
       sending: 'Sending…',
     },
+    adsLanding: {
+      label: '+ GET YOUR FREE QUOTE',
+      headline: 'A Professional Website',
+      headlineEmphasis: 'Built For Your Business',
+      subheading: "Pick the plan that fits your business below and request a free, no-obligation quote — we'll get back to you within 24 hours.",
+      badges: ['Free Quote', 'No Obligation', 'Reply Within 24h'],
+    },
   },
 
   hu: {
@@ -542,6 +549,13 @@ export const translations = {
       success: 'Üzenet elküldve! Hamarosan felvesszük a kapcsolatot.',
       error: 'Valami hiba történt. Kérjük, próbálja újra.',
       sending: 'Küldés…',
+    },
+    adsLanding: {
+      label: '+ INGYENES AJÁNLATKÉRÉS',
+      headline: 'Professzionális weboldal',
+      headlineEmphasis: 'az Ön vállalkozásának',
+      subheading: 'Válassza ki az Önnek megfelelő csomagot lent, és kérjen ingyenes, kötelezettség nélküli ajánlatot — 24 órán belül válaszolunk.',
+      badges: ['Ingyenes ajánlat', 'Kötelezettség nélkül', '24 órán belüli válasz'],
     },
   },
 };
